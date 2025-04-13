@@ -1,27 +1,134 @@
-// Smooth scrolling for navigation links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
+// Initialize AOS (Animate On Scroll)
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize AOS animations (für andere Elemente auf der Seite)
+    AOS.init({
+        duration: 800,
+        easing: 'ease-in-out',
+        once: false,
+        mirror: false,
+        anchorPlacement: 'top-bottom',
+        offset: 120,
+        delay: 100
+    });
+
+    // Timeline-Animation
+    const timeline = document.querySelector('.timeline-container');
+    const timelineItems = document.querySelectorAll('.timeline-item');
+    
+    if (timeline && timelineItems.length > 0) {
+        // Speichern, welche Items bereits sichtbar wurden
+        const visibleItems = new Array(timelineItems.length).fill(false);
+        
+        // Funktion zum Aktualisieren der Timeline-Linie
+        function updateTimeline() {
+            // Prüfen, ob Timeline-Container im Viewport ist
+            const timelineRect = timeline.getBoundingClientRect();
+            if (timelineRect.top > window.innerHeight || timelineRect.bottom < 0) {
+                return; // Timeline nicht im Viewport
+            }
+            
+            // Viewport-Höhe für Sichtbarkeitsberechnung
+            const viewportHeight = window.innerHeight;
+            
+            // Zählen, wie viele Items sichtbar sind
+            let lastVisibleIndex = -1;
+            
+            // Items überprüfen und animieren
+            timelineItems.forEach((item, index) => {
+                const itemRect = item.getBoundingClientRect();
+                // Item ist sichtbar, wenn es mindestens 1/3 sichtbar im Viewport ist
+                const visibilityThreshold = 0.3;
+                const itemTop = itemRect.top;
+                const itemVisible = itemTop < viewportHeight * (1 - visibilityThreshold) && 
+                                   itemTop + itemRect.height * visibilityThreshold > 0;
+                
+                if (itemVisible) {
+                    if (!visibleItems[index]) {
+                        // Item wird erstmals sichtbar
+                        visibleItems[index] = true;
+                        item.classList.add('item-visible');
+                        
+                        // Scroll-Verzögerung für die Animation
+                        setTimeout(() => {
+                            // Timeline-Linie aktualisieren
+                            updateLineHeight();
+                        }, 50);
+                    }
+                    
+                    // Merken des letzten sichtbaren Items
+                    lastVisibleIndex = index;
+                }
+            });
+            
+            // Hilfsfunktion zum Aktualisieren der Linienhöhe
+            function updateLineHeight() {
+                if (lastVisibleIndex >= 0) {
+                    // Die Linie wächst schrittweise mit jedem sichtbaren Item
+                    const lineHeight = (lastVisibleIndex + 1) / timelineItems.length * 100;
+                    timeline.style.setProperty('--line-height', `${lineHeight}%`);
+                } else {
+                    timeline.style.setProperty('--line-height', '0%');
+                }
+            }
+        }
+        
+        // Anpassung für die Timeline-Linie mit CSS-Variable
+        const styleSheet = document.createElement('style');
+        styleSheet.textContent = `
+            .timeline-container::before {
+                height: var(--line-height, 0%) !important;
+            }
+        `;
+        document.head.appendChild(styleSheet);
+        
+        // Event-Listener für das Scrollen
+        window.addEventListener('scroll', updateTimeline);
+        window.addEventListener('resize', updateTimeline);
+        
+        // Initial ausführen
+        setTimeout(updateTimeline, 100);
+    }
+
+    // Smooth Scrolling für Anker-Links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                window.scrollTo({
+                    top: target.offsetTop - 70,
+                    behavior: 'smooth'
+                });
+            }
         });
     });
-});
 
-// Navbar background change on scroll
-window.addEventListener('scroll', function() {
+    // Navbar Background-Änderung beim Scrollen
     const navbar = document.querySelector('.navbar');
-    if (window.scrollY > 50) {
-        navbar.classList.add('navbar-scrolled');
-    } else {
-        navbar.classList.remove('navbar-scrolled');
+    function updateNavbarBackground() {
+        if (window.scrollY > 50) {
+            navbar.classList.add('navbar-scrolled');
+        } else {
+            navbar.classList.remove('navbar-scrolled');
+        }
     }
-});
+    
+    window.addEventListener('scroll', updateNavbarBackground);
+    updateNavbarBackground(); // Initial ausführen
 
-// Initialize tooltips
-var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
-var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-    return new bootstrap.Tooltip(tooltipTriggerEl);
+    // Aktiviere Bootstrap Tooltips
+    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+    const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
+
+    // Initialisierung des Quiz
+    initQuiz();
+
+    // Initialisierung der Erinnerungs-Funktionen
+    initMemories();
+
+    // Initialisierung des Bild-Modals
+    initImageModal();
 });
 
 // Quiz Functionality
@@ -289,4 +396,51 @@ document.addEventListener('DOMContentLoaded', function() {
             memoryDisplay.style.display = 'none';
         }
     }
+});
+
+// Image Modal Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    // Get the modal and its elements
+    const modal = document.getElementById('imageModal');
+    const modalImg = document.getElementById('modalImage');
+    const modalCaption = document.getElementById('imageCaption');
+    const closeBtn = document.querySelector('.image-modal-close');
+    
+    // Find all timeline images
+    const timelineImages = document.querySelectorAll('.timeline-image img');
+    
+    // Add click event to all timeline images
+    timelineImages.forEach(img => {
+        img.style.cursor = 'pointer';
+        img.addEventListener('click', function() {
+            modal.style.display = 'flex';
+            modalImg.src = this.src;
+            modalCaption.textContent = this.alt;
+            
+            // Prevent scrolling on body when modal is open
+            document.body.style.overflow = 'hidden';
+        });
+    });
+    
+    // Close the modal when clicking the close button
+    closeBtn.addEventListener('click', function() {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    });
+    
+    // Close the modal when clicking outside the image
+    modal.addEventListener('click', function(event) {
+        if (event.target === modal) {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+    });
+    
+    // Close the modal when pressing Escape key
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape' && modal.style.display === 'flex') {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+    });
 }); 

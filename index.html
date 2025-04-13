@@ -8,6 +8,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/styles.css">
     <!-- Google Fonts -->
@@ -17,29 +19,29 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="#">Confiserie Lamberti</a>
+            <a class="navbar-brand" href="https://confiserie-lamberti.de">Confiserie Lamberti</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" href="#home">Start</a>
+                        <a class="nav-link" href="https://confiserie-lamberti.de">Startseite</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#geschichte">Unsere Geschichte</a>
+                        <a class="nav-link active" href="#">Unsere Geschichte</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#menschen">Menschen</a>
+                        <a class="nav-link" href="https://confiserie-lamberti.de/produkte">Produkte</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#handwerk">Handwerk</a>
+                        <a class="nav-link" href="https://confiserie-lamberti.de/cafe">Café</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#interaktion">Interaktion</a>
+                        <a class="nav-link" href="https://confiserie-lamberti.de/shop">Online-Shop</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#kontakt">Kontakt</a>
+                        <a class="nav-link" href="https://confiserie-lamberti.de/kontakt">Kontakt</a>
                     </li>
                 </ul>
             </div>
@@ -66,7 +68,7 @@
             <div class="row justify-content-center mb-5">
                 <div class="col-lg-8 text-center">
                     <h2 class="section-title">Unsere Geschichte</h2>
-                    <p class="section-subtitle">Eine süße Reise durch die Zeit seit 1924</p>
+                    <p class="section-subtitle">Seit 1924 steht die Confiserie Lamberti für handwerkliche Qualität, kreative Süßwaren und familiäre Tradition. In unserer interaktiven Zeitleiste nehmen wir Sie mit auf eine Reise durch bewegte Jahrzehnte – von der Gründung in den Goldenen Zwanzigern über Zeiten des Aufbruchs bis hin zum heutigen Genuss mit Geschichte.</p>
                 </div>
             </div>
             
@@ -87,6 +89,19 @@
                     </div>
                 </div>
                 
+                <!-- 1932: Erste Pralinenkollektion -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">1932</div>
+                    <div class="timeline-content">
+                        <h3>Erste Pralinenkollektion mit regionalen Zutaten</h3>
+                        <p>Inmitten wirtschaftlich schwieriger Zeiten wagt die Konditorei Lamberti ein neues Kapitel: Die erste eigene Pralinenlinie wird vorgestellt – hergestellt mit Sahne von regionalen Bauernhöfen und Früchten aus dem Umland. Ein Meilenstein für das heutige Premiumsortiment.</p>
+                        <div class="timeline-image">
+                            <img src="images/timeline/1932-pralinensortiment.jpg" alt="Historisches Foto der ersten Pralinenkollektion" class="img-fluid rounded">
+                        </div>
+                    </div>
+                </div>
+                
                 <!-- 1950er: Wiederaufbau -->
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
@@ -103,6 +118,19 @@
                                 Ihr Browser unterstützt das Audio-Element nicht.
                             </audio>
                             <p class="audio-caption">Friedrich Lamberti Jr. erzählt vom Neuanfang</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 1965: Sonntagskiste -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">1965</div>
+                    <div class="timeline-content">
+                        <h3>Einführung der beliebten Sonntagskiste</h3>
+                        <p>Unter dem Motto "Sonntag ist Kuchentag" wird ein Lieferservice für frisch gebackene Sonntagskuchen eingeführt. Die "Sonntagskiste" erfreut sich schnell großer Beliebtheit – besonders bei älteren Menschen und Familien, die sich ein Stück Lamberti-Konditorkunst nach Hause holen.</p>
+                        <div class="timeline-image">
+                            <img src="images/timeline/1965-sonntagskiste.jpg" alt="Historisches Foto der Sonntagskiste" class="img-fluid rounded">
                         </div>
                     </div>
                 </div>
@@ -180,7 +208,7 @@
 
             <div class="row mb-5">
                 <div class="col-lg-6">
-                    <div class="card founder-card">
+                    <div class="card founder-card" data-aos="fade-right" data-aos-duration="800" data-aos-once="true">
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-5">
@@ -196,7 +224,7 @@
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <div class="card founder-card">
+                    <div class="card founder-card" data-aos="fade-left" data-aos-duration="800" data-aos-delay="200" data-aos-once="true">
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-5">
@@ -221,7 +249,7 @@
 
             <div class="row interview-section">
                 <div class="col-md-4">
-                    <div class="interview-card">
+                    <div class="interview-card" data-aos="fade-right" data-aos-duration="800" data-aos-once="true">
                         <div class="interview-img">
                             <img src="images/team/mitarbeiter-1.jpg" alt="Helga Weber" class="img-fluid rounded-circle">
                         </div>
@@ -244,7 +272,7 @@
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="interview-card">
+                    <div class="interview-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200" data-aos-once="true">
                         <div class="interview-img">
                             <img src="images/team/mitarbeiter-2.jpg" alt="Klaus Schmidt" class="img-fluid rounded-circle">
                         </div>
@@ -267,7 +295,7 @@
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="interview-card">
+                    <div class="interview-card" data-aos="fade-left" data-aos-duration="800" data-aos-delay="400" data-aos-once="true">
                         <div class="interview-img">
                             <img src="images/team/mitarbeiter-3.jpg" alt="Maria Krüger" class="img-fluid rounded-circle">
                         </div>
@@ -815,9 +843,18 @@
             </div>
         </div>
     </div>
+    
+    <!-- Image Viewer Modal -->
+    <div id="imageModal" class="image-modal">
+        <span class="image-modal-close">&times;</span>
+        <img class="image-modal-content" id="modalImage">
+        <div id="imageCaption" class="caption-container"></div>
+    </div>
 
     <!-- Bootstrap JS Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <!-- Custom JS -->
     <script src="js/main.js"></script>
 </body>
