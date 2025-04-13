@@ -207,6 +207,119 @@ section {
     color: var(--primary-color);
 }
 
+/* Menschen bei Lamberti Section */
+.menschen-section {
+    background-color: #fff;
+    position: relative;
+}
+
+.team-photo {
+    margin-bottom: 3rem;
+}
+
+.team-caption {
+    font-style: italic;
+    color: #666;
+}
+
+.founder-card {
+    border: none;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+    transition: transform 0.3s ease;
+    border-radius: 8px;
+}
+
+.founder-card:hover {
+    transform: translateY(-5px);
+}
+
+.founder-img {
+    margin-bottom: 1rem;
+    border: 5px solid var(--secondary-color);
+}
+
+.founder-name {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    margin-bottom: 0.25rem;
+}
+
+.founder-title {
+    color: var(--accent-color);
+    font-style: italic;
+    margin-bottom: 1rem;
+}
+
+.founder-text {
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.interview-title {
+    color: var(--primary-color);
+    position: relative;
+    display: inline-block;
+    padding-bottom: 0.5rem;
+}
+
+.interview-title:after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 2px;
+    background-color: var(--accent-color);
+}
+
+.interview-card {
+    background-color: var(--secondary-color);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    margin-bottom: 2rem;
+    height: 100%;
+}
+
+.interview-img {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 1.5rem;
+    border: 5px solid #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.interview-name {
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 0.25rem;
+}
+
+.interview-position {
+    text-align: center;
+    color: #666;
+    font-style: italic;
+    margin-bottom: 1.5rem;
+}
+
+.interview-content {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.interview-content p {
+    margin-bottom: 1rem;
+}
+
+.interview-content strong {
+    color: var(--primary-color);
+}
+
 /* Responsive Design */
 @media (max-width: 992px) {
     .timeline-container:before {
