@@ -10,14 +10,14 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
     <!-- AOS CSS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <!-- Locomotive Scroll CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/styles.css">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <!-- Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 </head>
-<body data-scroll-container>
+<body>
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
@@ -50,14 +50,16 @@
         </div>
     </nav>
 
-    <!-- Parallax Intro Section -->
-    <section id="home" class="parallax-section">
-        <div class="parallax-bg parallax-intro"></div>
-        <div class="parallax-overlay"></div>
-        <div class="parallax-content">
-            <h2>Confiserie Lamberti</h2>
-            <p>Seit 1924 – Handgemachte Verführung aus Wilhelmshaven</p>
-            <a href="#geschichte" class="parallax-btn">Entdecken Sie unsere Geschichte</a>
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center justify-content-center">
+                <div class="col-12 text-center">
+                    <h1 data-aos="fade-up">Confiserie Lamberti</h1>
+                    <p class="lead" data-aos="fade-up" data-aos-delay="100">Seit 1924 – Handgemachte Verführung aus Wilhelmshaven</p>
+                    <a href="#geschichte" class="btn btn-primary mt-4" data-aos="fade-up" data-aos-delay="200">Entdecken Sie unsere Geschichte</a>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -73,7 +75,7 @@
             
             <div class="timeline-container">
                 <!-- 1924: Gründung -->
-                <div class="timeline-item">
+                <div class="timeline-item" data-aos="fade-right" data-aos-duration="1000">
                     <div class="timeline-dot"></div>
                     <div class="timeline-date">1924</div>
                     <div class="timeline-content">
@@ -89,7 +91,7 @@
                 </div>
                 
                 <!-- 1932: Erste Pralinenkollektion -->
-                <div class="timeline-item">
+                <div class="timeline-item" data-aos="fade-right" data-aos-duration="1000">
                     <div class="timeline-dot"></div>
                     <div class="timeline-date">1932</div>
                     <div class="timeline-content">
@@ -112,11 +114,13 @@
                             <img src="images/timeline/1950-wiederaufbau.jpg" alt="Foto vom Wiederaufbau" class="img-fluid rounded">
                         </div>
                         <div class="timeline-audio mt-3">
+                            <!-- Temporarily disabled until media files are available
                             <audio controls>
                                 <source src="audio/1950-zeitzeugen.mp3" type="audio/mpeg">
                                 Ihr Browser unterstützt das Audio-Element nicht.
                             </audio>
                             <p class="audio-caption">Friedrich Lamberti Jr. erzählt vom Neuanfang</p>
+                            -->
                         </div>
                     </div>
                 </div>
@@ -174,11 +178,13 @@
                             <img src="images/timeline/2024-jubilaeum.jpg" alt="100-jähriges Jubiläum" class="img-fluid rounded">
                         </div>
                         <div class="timeline-video mt-3">
+                            <!-- Temporarily disabled until media files are available
                             <video controls class="img-fluid">
                                 <source src="videos/jubilaeum-interview.mp4" type="video/mp4">
                                 Ihr Browser unterstützt das Video-Element nicht.
                             </video>
                             <p class="video-caption">Interview mit Thomas Lamberti zum Jubiläum</p>
+                            -->
                         </div>
                     </div>
                 </div>
@@ -218,32 +224,40 @@
 
             <div class="row mb-5">
                 <div class="col-lg-6">
-                    <div class="card founder-card" data-aos="fade-right" data-aos-duration="800" data-aos-once="true">
+                    <div class="card founder-card" data-aos="fade-right" data-aos-duration="1000">
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-5">
-                                    <img src="images/team/friedrich-lamberti.jpg" alt="Friedrich Lamberti" class="img-fluid rounded founder-img">
+                                    <div class="founder-img-container">
+                                        <img src="images/team/friedrich-lamberti.jpg" alt="Friedrich Lamberti" class="img-fluid rounded founder-img">
+                                    </div>
                                 </div>
                                 <div class="col-md-7">
-                                    <h3 class="founder-name">Friedrich Lamberti</h3>
-                                    <p class="founder-title">Gründer (1896-1972)</p>
-                                    <p class="founder-text">Als junger Konditormeister eröffnete Friedrich Lamberti 1924 seine eigene Konditorei in Wilhelmshaven. Seine Vision: die feinsten Pralinen an der Nordseeküste herzustellen. Seine Leidenschaft für qualitativ hochwertige Zutaten und traditionelle Handwerkskunst legt bis heute den Grundstein für alle Kreationen der Confiserie.</p>
+                                    <div class="founder-text-container">
+                                        <h3 class="founder-name">Friedrich Lamberti</h3>
+                                        <p class="founder-title">Gründer (1896-1972)</p>
+                                        <p class="founder-text">Als junger Konditormeister eröffnete Friedrich Lamberti 1924 seine eigene Konditorei in Wilhelmshaven. Seine Vision: die feinsten Pralinen an der Nordseeküste herzustellen. Seine Leidenschaft für qualitativ hochwertige Zutaten und traditionelle Handwerkskunst legt bis heute den Grundstein für alle Kreationen der Confiserie.</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <div class="card founder-card" data-aos="fade-left" data-aos-duration="800" data-aos-delay="200" data-aos-once="true">
+                    <div class="card founder-card" data-aos="fade-left" data-aos-duration="1000">
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-5">
-                                    <img src="images/team/thomas-lamberti.jpg" alt="Thomas Lamberti" class="img-fluid rounded founder-img">
+                                    <div class="founder-img-container">
+                                        <img src="images/team/thomas-lamberti.jpg" alt="Thomas Lamberti" class="img-fluid rounded founder-img">
+                                    </div>
                                 </div>
                                 <div class="col-md-7">
-                                    <h3 class="founder-name">Thomas Lamberti</h3>
-                                    <p class="founder-title">Aktueller Inhaber</p>
-                                    <p class="founder-text">Als Vertreter der dritten Generation führt Thomas Lamberti das Familienunternehmen mit einer Mischung aus Tradition und Innovation. Nach seiner Ausbildung in der Schweiz brachte er neue Impulse mit, während er die bewährten Familienrezepte bewahrt. Unter seiner Leitung wurde die Confiserie zu einer bekannten Marke über die Stadtgrenzen hinaus.</p>
+                                    <div class="founder-text-container">
+                                        <h3 class="founder-name">Thomas Lamberti</h3>
+                                        <p class="founder-title">Aktueller Inhaber</p>
+                                        <p class="founder-text">Als Vertreter der dritten Generation führt Thomas Lamberti das Familienunternehmen mit einer Mischung aus Tradition und Innovation. Nach seiner Ausbildung in der Schweiz brachte er neue Impulse mit, während er die bewährten Familienrezepte bewahrt. Unter seiner Leitung wurde die Confiserie zu einer bekannten Marke über die Stadtgrenzen hinaus.</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -259,71 +273,83 @@
 
             <div class="row interview-section">
                 <div class="col-md-4">
-                    <div class="interview-card" data-aos="fade-right" data-aos-duration="800" data-aos-once="true">
-                        <div class="interview-img">
+                    <div class="interview-card" data-aos="fade-right" data-aos-duration="1000">
+                        <div class="interview-img-container">
                             <img src="images/team/mitarbeiter-1.jpg" alt="Helga Weber" class="img-fluid rounded-circle">
                         </div>
-                        <h4 class="interview-name">Helga Weber</h4>
-                        <p class="interview-position">Konditormeisterin seit 1987</p>
-                        <div class="interview-content">
-                            <p><strong>Was ist Ihr Lieblingsprodukt?</strong><br>
-                            "Die Himbeerpralinen mit weißer Schokolade. Ich verfeinere sie seit 30 Jahren und optimiere sie immer wieder."</p>
-                            <p><strong>Was hat sich in Ihrer Zeit bei Lamberti verändert?</strong><br>
-                            "Vieles wurde moderner, aber die Qualität und das Handwerk sind geblieben. Das schätze ich sehr."</p>
-                            <p><strong>Was macht Lamberti besonders?</strong><br>
-                            "Der Familienzusammenhalt und dass alle Mitarbeiter wie eine große Familie sind. Das spüren auch die Kunden."</p>
-                        </div>
-                        <div class="interview-audio mt-3">
-                            <audio controls class="w-100">
-                                <source src="audio/interview-helga.mp3" type="audio/mpeg">
-                                Ihr Browser unterstützt das Audio-Element nicht.
-                            </audio>
+                        <div class="interview-text-container">
+                            <h4 class="interview-name">Helga Weber</h4>
+                            <p class="interview-position">Konditormeisterin seit 1987</p>
+                            <div class="interview-content">
+                                <p><strong>Was ist Ihr Lieblingsprodukt?</strong><br>
+                                "Die Himbeerpralinen mit weißer Schokolade. Ich verfeinere sie seit 30 Jahren und optimiere sie immer wieder."</p>
+                                <p><strong>Was hat sich in Ihrer Zeit bei Lamberti verändert?</strong><br>
+                                "Vieles wurde moderner, aber die Qualität und das Handwerk sind geblieben. Das schätze ich sehr."</p>
+                                <p><strong>Was macht Lamberti besonders?</strong><br>
+                                "Der Familienzusammenhalt und dass alle Mitarbeiter wie eine große Familie sind. Das spüren auch die Kunden."</p>
+                            </div>
+                            <div class="interview-audio mt-3">
+                                <!-- Temporarily disabled until media files are available
+                                <audio controls class="w-100">
+                                    <source src="audio/interview-helga.mp3" type="audio/mpeg">
+                                    Ihr Browser unterstützt das Audio-Element nicht.
+                                </audio>
+                                -->
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="interview-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200" data-aos-once="true">
-                        <div class="interview-img">
+                    <div class="interview-card" data-aos="fade-up" data-aos-duration="1000">
+                        <div class="interview-img-container">
                             <img src="images/team/mitarbeiter-2.jpg" alt="Klaus Schmidt" class="img-fluid rounded-circle">
                         </div>
-                        <h4 class="interview-name">Klaus Schmidt</h4>
-                        <p class="interview-position">Verkaufsleiter seit 1995</p>
-                        <div class="interview-content">
-                            <p><strong>Was ist Ihr Lieblingsprodukt?</strong><br>
-                            "Unser Marzipanosterei. Die Handarbeit, die in jedem Stück steckt, ist einfach beeindruckend."</p>
-                            <p><strong>Was hat sich in Ihrer Zeit bei Lamberti verändert?</strong><br>
-                            "Wir haben uns digitalisiert, aber die persönliche Beratung steht immer noch im Mittelpunkt."</p>
-                            <p><strong>Was macht Lamberti besonders?</strong><br>
-                            "Die treuen Kunden, die teilweise schon in der dritten Generation zu uns kommen. Das ist ein toller Vertrauensbeweis."</p>
-                        </div>
-                        <div class="interview-audio mt-3">
-                            <audio controls class="w-100">
-                                <source src="audio/interview-klaus.mp3" type="audio/mpeg">
-                                Ihr Browser unterstützt das Audio-Element nicht.
-                            </audio>
+                        <div class="interview-text-container">
+                            <h4 class="interview-name">Klaus Schmidt</h4>
+                            <p class="interview-position">Verkaufsleiter seit 1995</p>
+                            <div class="interview-content">
+                                <p><strong>Was ist Ihr Lieblingsprodukt?</strong><br>
+                                "Unser Marzipanosterei. Die Handarbeit, die in jedem Stück steckt, ist einfach beeindruckend."</p>
+                                <p><strong>Was hat sich in Ihrer Zeit bei Lamberti verändert?</strong><br>
+                                "Wir haben uns digitalisiert, aber die persönliche Beratung steht immer noch im Mittelpunkt."</p>
+                                <p><strong>Was macht Lamberti besonders?</strong><br>
+                                "Die treuen Kunden, die teilweise schon in der dritten Generation zu uns kommen. Das ist ein toller Vertrauensbeweis."</p>
+                            </div>
+                            <div class="interview-audio mt-3">
+                                <!-- Temporarily disabled until media files are available
+                                <audio controls class="w-100">
+                                    <source src="audio/interview-klaus.mp3" type="audio/mpeg">
+                                    Ihr Browser unterstützt das Audio-Element nicht.
+                                </audio>
+                                -->
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="interview-card" data-aos="fade-left" data-aos-duration="800" data-aos-delay="400" data-aos-once="true">
-                        <div class="interview-img">
+                    <div class="interview-card" data-aos="fade-left" data-aos-duration="1000">
+                        <div class="interview-img-container">
                             <img src="images/team/mitarbeiter-3.jpg" alt="Maria Krüger" class="img-fluid rounded-circle">
                         </div>
-                        <h4 class="interview-name">Maria Krüger</h4>
-                        <p class="interview-position">Café-Leitung seit 2001</p>
-                        <div class="interview-content">
-                            <p><strong>Was ist Ihr Lieblingsprodukt?</strong><br>
-                            "Die Schwarzwälder Kirschtorte nach Omas Rezept. Sie transportiert ein Stück Geschichte."</p>
-                            <p><strong>Was hat sich in Ihrer Zeit bei Lamberti verändert?</strong><br>
-                            "Wir bieten jetzt mehr internationale Spezialitäten an, aber immer mit unserer lokalen Note."</p>
-                            <p><strong>Was macht Lamberti besonders?</strong><br>
-                            "Die Atmosphäre im Café. Viele Gäste kommen nicht nur wegen der Süßigkeiten, sondern auch, um Teil unserer kleinen Gemeinschaft zu sein."</p>
-                        </div>
-                        <div class="interview-audio mt-3">
-                            <audio controls class="w-100">
-                                <source src="audio/interview-maria.mp3" type="audio/mpeg">
-                                Ihr Browser unterstützt das Audio-Element nicht.
-                            </audio>
+                        <div class="interview-text-container">
+                            <h4 class="interview-name">Maria Krüger</h4>
+                            <p class="interview-position">Café-Leitung seit 2001</p>
+                            <div class="interview-content">
+                                <p><strong>Was ist Ihr Lieblingsprodukt?</strong><br>
+                                "Die Schwarzwälder Kirschtorte nach Omas Rezept. Sie transportiert ein Stück Geschichte."</p>
+                                <p><strong>Was hat sich in Ihrer Zeit bei Lamberti verändert?</strong><br>
+                                "Wir bieten jetzt mehr internationale Spezialitäten an, aber immer mit unserer lokalen Note."</p>
+                                <p><strong>Was macht Lamberti besonders?</strong><br>
+                                "Die Atmosphäre im Café. Viele Gäste kommen nicht nur wegen der Süßigkeiten, sondern auch, um Teil unserer kleinen Gemeinschaft zu sein."</p>
+                            </div>
+                            <div class="interview-audio mt-3">
+                                <!-- Temporarily disabled until media files are available
+                                <audio controls class="w-100">
+                                    <source src="audio/interview-maria.mp3" type="audio/mpeg">
+                                    Ihr Browser unterstützt das Audio-Element nicht.
+                                </audio>
+                                -->
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -339,6 +365,88 @@
             <h2>Handwerkskunst</h2>
             <p>Jede unserer Pralinen ist ein kleines Kunstwerk. Mit Liebe zum Detail und den feinsten Zutaten erschaffen wir Genussmomente, die in Erinnerung bleiben.</p>
             <a href="#handwerk" class="parallax-btn">Mehr erfahren</a>
+        </div>
+    </section>
+
+    <!-- Handwerk & Qualität Section -->
+    <section id="handwerk" class="handwerk-section">
+        <div class="container">
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8 text-center">
+                    <h2 class="section-title">Handwerk & Qualität</h2>
+                    <p class="section-subtitle">Traditions-Handwerk trifft auf höchste Ansprüche</p>
+                </div>
+            </div>
+
+            <div class="row mb-5">
+                <div class="col-lg-6 mb-4">
+                    <div class="handwerk-text-container">
+                        <h3 class="handwerk-subtitle">Unsere Philosophie</h3>
+                        <p>Bei Confiserie Lamberti steht das Handwerk im Mittelpunkt. Seit 1924 stellen wir alle unsere Pralinen und Backwaren mit traditionellen Methoden und viel Liebe zum Detail her. Wir glauben, dass man den Unterschied schmecken kann.</p>
+                        <p>Unsere Zutaten beziehen wir, wo immer möglich, von lokalen Produzenten. Für exotische Zutaten wie Kakao setzen wir auf langfristige, faire Handelsbeziehungen mit ausgewählten Partnern.</p>
+                        <h3 class="handwerk-subtitle mt-4">Nachhaltigkeit</h3>
+                        <p>Qualität bedeutet für uns auch Verantwortung: Wir verzichten komplett auf künstliche Zusatzstoffe und achten auf umweltfreundliche Verpackungen. So können Sie unsere Süßigkeiten mit gutem Gewissen genießen.</p>
+                        <div class="handwerk-video mt-4">
+                            <!-- Temporarily disabled until media files are available
+                            <video controls class="img-fluid rounded shadow">
+                                <source src="videos/praline-herstellung.mp4" type="video/mp4">
+                                Ihr Browser unterstützt das Video-Element nicht.
+                            </video>
+                            <p class="video-caption">Einblick in die Herstellung unserer Signature-Pralinen</p>
+                            -->
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="handwerk-gallery">
+                        <div class="row g-3">
+                            <div class="col-6">
+                                <a href="#" class="gallery-item" data-bs-toggle="modal" data-bs-target="#galleryModal1">
+                                    <img src="images/handwerk/praline-1.jpg" alt="Praline Herstellung" class="img-fluid rounded shadow">
+                                </a>
+                            </div>
+                            <div class="col-6">
+                                <a href="#" class="gallery-item" data-bs-toggle="modal" data-bs-target="#galleryModal2">
+                                    <img src="images/handwerk/praline-2.jpg" alt="Handgemachte Pralinen" class="img-fluid rounded shadow">
+                                </a>
+                            </div>
+                            <div class="col-6">
+                                <a href="#" class="gallery-item" data-bs-toggle="modal" data-bs-target="#galleryModal3">
+                                    <img src="images/handwerk/werkstatt-1.jpg" alt="Werkstatt" class="img-fluid rounded shadow">
+                                </a>
+                            </div>
+                            <div class="col-6">
+                                <a href="#" class="gallery-item" data-bs-toggle="modal" data-bs-target="#galleryModal4">
+                                    <img src="images/handwerk/werkstatt-2.jpg" alt="Produktionsprozess" class="img-fluid rounded shadow">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="quality-badges mt-4">
+                        <div class="row text-center">
+                            <div class="col-4">
+                                <div class="quality-badge">
+                                    <img src="images/icons/handmade-icon.svg" alt="Handgemacht" class="img-fluid mb-2">
+                                    <h5>100% Handarbeit</h5>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="quality-badge">
+                                    <img src="images/icons/regional-icon.svg" alt="Regional" class="img-fluid mb-2">
+                                    <h5>Regionale Zutaten</h5>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="quality-badge">
+                                    <img src="images/icons/tradition-icon.svg" alt="Tradition" class="img-fluid mb-2">
+                                    <h5>100 Jahre Tradition</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -792,12 +900,10 @@
         <div id="imageCaption" class="caption-container"></div>
     </div>
 
-    <!-- Bootstrap JS Bundle with Popper -->
+    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <!-- AOS JS -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <!-- Locomotive Scroll JS -->
-    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
     <!-- Custom JS -->
     <script src="js/main.js"></script>
 </body>

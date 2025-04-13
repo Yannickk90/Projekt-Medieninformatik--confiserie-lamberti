@@ -7,17 +7,18 @@
     --dark-bg: #121212; /* Sehr dunkler Hintergrund */
     --card-bg: #2A2118; /* Dunkles Braun für Karten */
     --card-border: #3D2E21; /* Dunkleres Braun für Ränder */
+    --timeline-height: 100%; /* Default value for timeline height */
 }
 
 body {
     font-family: 'Roboto', sans-serif;
     color: var(--text-color);
-    padding-top: 56px; /* Space for fixed navbar */
+    margin: 0;
+    padding: 0;
     background-color: var(--dark-bg);
-    background-image: url('../images/backgrounds/chocolate-praline.jpg');
-    background-size: cover;
-    background-attachment: initial;
-    background-position: center;
+    min-height: 100vh;
+    overflow-x: hidden;
+    cursor: auto;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -31,104 +32,92 @@ h1, h2, h3, h4, h5, h6 {
     background-image: url('../images/backgrounds/chocolate-praline.jpg');
     background-size: cover;
     background-position: center;
+    background-attachment: fixed;
     position: relative;
-}
-
-.hero-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.4); /* Weiter reduzierte Abdunklung */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0;
+    margin: 0;
 }
 
 .hero-section h1 {
-    color: #ffffff;
-    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
+    color: var(--accent-color);
+    font-size: 4.5rem;
+    font-weight: 700;
     margin-bottom: 1rem;
-    font-size: 4rem;
-    font-weight: 800;
-    filter: brightness(1.2);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .hero-section .lead {
-    color: #ffffff;
+    color: var(--light-text);
     font-size: 1.8rem;
-    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
     margin-bottom: 2rem;
-    font-weight: 600;
-    filter: brightness(1.2);
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
 }
 
-.hero-link {
-    color: var(--accent-color);
-    font-size: 1.5rem;
-    text-decoration: none;
-    font-family: 'Playfair Display', serif;
-    font-weight: 600;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-    position: relative;
-    display: inline-block;
+.hero-section .btn-primary {
+    font-size: 1.2rem;
+    padding: 0.8rem 2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-width: 2px;
     transition: all 0.3s ease;
-    filter: brightness(1.2);
 }
 
-.hero-link:after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 3px;
-    bottom: -5px;
-    left: 0;
-    background-color: var(--accent-color);
-    transform: scaleX(0.7);
-    transform-origin: center;
-    transition: transform 0.3s ease;
-}
-
-.hero-link:hover {
-    color: white;
-}
-
-.hero-link:hover:after {
-    transform: scaleX(1);
+.hero-section .btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 /* Navigation */
 .navbar {
-    background-color: rgba(18, 18, 18, 0.9) !important;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-    border-bottom: 1px solid var(--card-border);
-    position: fixed;
+    background-color: transparent !important;
+    box-shadow: none;
+    border-bottom: none;
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 1000;
+    pointer-events: auto !important;
+    padding: 1.5rem 0;
 }
 
 .navbar-brand {
     font-family: 'Playfair Display', serif;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     color: var(--accent-color) !important;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .nav-link {
     color: var(--light-text) !important;
     font-weight: 500;
     transition: color 0.3s ease;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    font-size: 1.1rem;
 }
 
 .nav-link:hover {
     color: var(--accent-color) !important;
+    transform: translateY(-2px);
 }
 
 .navbar-toggler {
-    border-color: var(--card-border);
+    border: none;
+    padding: 0;
 }
 
 .navbar-toggler-icon {
-    filter: invert(1);
+    filter: invert(1) drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.5));
+}
+
+/* Navbar Scrolled State entfernen */
+.navbar-scrolled {
+    background-color: transparent !important;
+    box-shadow: none;
 }
 
 /* Buttons */
@@ -157,7 +146,8 @@ section {
     margin-bottom: 1rem;
     position: relative;
     display: inline-block;
-    color: var(--light-text);
+    color: var(--accent-color);
+    text-shadow: 0px 3px 5px rgba(0, 0, 0, 1);
 }
 
 .section-title:after {
@@ -173,8 +163,9 @@ section {
 
 .section-subtitle {
     font-size: 1.2rem;
-    color: #A0A0A0;
+    color: var(--light-text);
     margin-bottom: 2rem;
+    text-shadow: 0px 2px 4px rgba(0, 0, 0, 1);
 }
 
 /* Geschichte Timeline */
@@ -183,128 +174,75 @@ section {
     position: relative;
     color: var(--light-text);
     background-image: url('../images/backgrounds/chocolate-liquid.jpg');
-    background-attachment: initial;
+    background-attachment: scroll;
     background-size: cover;
     background-position: center;
     will-change: transform;
+    z-index: 2;
 }
 
 .timeline-container {
     position: relative;
     padding: 2rem 0;
-    overflow: visible;
 }
 
-/* Timeline vertical line */
-.timeline-container:before {
+.timeline-container::before {
     content: '';
     position: absolute;
+    width: 2px;
+    background: var(--accent-color);
     top: 0;
+    bottom: 0;
     left: 50%;
-    width: 4px;
-    height: var(--timeline-height, 30%); /* Increased default height to 30% */
-    background-color: var(--accent-color);
     transform: translateX(-50%);
-    z-index: 0;
-    transition: height 0.8s ease-out;
-    opacity: 1; /* Ensure the line is always visible */
+    height: var(--timeline-height, 0%);
+    transition: height 0.8s ease;
 }
 
-/* Timeline-Item-Sichtbarkeit */
 .timeline-item {
-    opacity: 0.5; /* Increased from 0.1 to 0.5 for better initial visibility */
-    transform: translateY(20px); /* Reduced from 30px to 20px for less dramatic effect */
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-    position: relative;
     margin-bottom: 3rem;
-    clear: both;
-    overflow: visible;
-    min-height: 150px;
-    will-change: opacity, transform;
+    position: relative;
 }
 
-.timeline-item.item-visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Timeline-Elements mit verzögerter Animation */
 .timeline-dot {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%) scale(0);
     width: 20px;
     height: 20px;
+    background: var(--accent-color);
     border-radius: 50%;
-    background-color: var(--accent-color);
-    border: 4px solid var(--primary-color);
-    z-index: 2;
-    transition: transform 0.3s ease-out 0.1s;
-}
-
-.timeline-item.item-visible .timeline-dot {
-    transform: translateX(-50%) scale(1);
-}
-
-/* Timeline-Date Styling */
-.timeline-date {
     position: absolute;
-    top: 0;
     left: 50%;
     transform: translateX(-50%);
-    padding: 0.5rem 1rem;
-    background-color: var(--primary-color);
-    color: var(--light-text);
-    font-weight: bold;
-    border-radius: 4px;
-    margin-top: -50px;
     z-index: 2;
-    opacity: 0;
-    transition: opacity 0.3s ease-out;
 }
 
-.timeline-item.item-visible .timeline-date {
-    opacity: 1;
-}
-
-/* Timeline-Content Styling */
 .timeline-content {
-    position: relative;
-    width: 42%;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 1.2rem;
-    background-color: rgba(42, 33, 24, 0.85);
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    z-index: 1;
-    font-size: 0.95rem;
-    opacity: 0;
-    transform: translateX(50px);
-    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    background: var(--card-bg);
     border: 1px solid var(--card-border);
-    color: var(--text-color);
+    border-radius: 8px;
+    padding: 1.5rem;
+    position: relative;
+    width: calc(50% - 30px);
+    margin-left: auto;
 }
 
 .timeline-item:nth-child(even) .timeline-content {
-    transform: translateX(-50px);
-}
-
-.timeline-item.item-visible .timeline-content {
-    opacity: 1;
-    transform: translateX(0);
+    margin-left: 0;
+    margin-right: auto;
 }
 
 .timeline-content h3 {
-    font-size: 1.4rem;
-    margin-bottom: 0.5rem;
     color: var(--accent-color);
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    text-shadow: 0px 2px 4px rgba(0, 0, 0, 1);
+    font-weight: 700;
 }
 
 .timeline-content p {
-    margin-bottom: 0.8rem;
-    line-height: 1.4;
+    margin-bottom: 1.2rem;
+    color: var(--light-text);
+    line-height: 1.6;
+    text-shadow: 0px 2px 3px rgba(0, 0, 0, 0.9);
 }
 
 /* Klarere Positionierung für alternierende Items */
@@ -402,10 +340,11 @@ section {
     position: relative;
     color: var(--text-color);
     background-image: url('../images/backgrounds/chocolate-production.jpg');
-    background-attachment: initial;
+    background-attachment: scroll;
     background-size: cover;
     background-position: center;
     will-change: transform;
+    z-index: 2;
 }
 
 .team-photo {
@@ -417,43 +356,74 @@ section {
     color: #A0A0A0;
 }
 
-.founder-card {
+.founder-card,
+.interview-card {
+    background: var(--card-bg);
     border: 1px solid var(--card-border);
-    background-color: rgba(42, 33, 24, 0.85);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    margin-bottom: 2rem;
-    transition: transform 0.3s ease;
     border-radius: 8px;
-    color: var(--text-color);
-    opacity: 1 !important; /* Force cards to be visible */
-    transform: none !important; /* Remove transform effects causing invisibility */
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.founder-card:hover {
-    transform: translateY(-5px) !important; /* Restore hover effect */
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+.founder-card:hover,
+.interview-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
+/* Bild-Container in Cards */
+.founder-img-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    width: 100%;
+}
+
+/* Text-Container für gleiche Höhe */
+.founder-content,
+.interview-content-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Bilder für gleichmäßige Darstellung */
 .founder-img {
     margin-bottom: 1rem;
     border: 5px solid var(--card-border);
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
 }
 
-.founder-name {
+.founder-name,
+.interview-name {
     color: var(--accent-color);
     font-size: 1.5rem;
     margin-bottom: 0.25rem;
+    text-shadow: 0px 2px 4px rgba(0, 0, 0, 1);
+    font-weight: 700;
 }
 
-.founder-title {
+.founder-title,
+.interview-position {
     color: var(--light-text);
-    font-style: italic;
+    font-size: 1.1rem;
+    opacity: 0.9;
     margin-bottom: 1rem;
+    font-style: italic;
+    display: inline-block;
+    padding-bottom: 0.5rem;
+    text-shadow: 0px 2px 4px rgba(0, 0, 0, 1);
 }
 
-.founder-text {
-    font-size: 0.95rem;
+.founder-text,
+.interview-content {
+    color: var(--light-text);
     line-height: 1.6;
+    text-shadow: 0px 2px 3px rgba(0, 0, 0, 0.9);
 }
 
 .interview-title {
@@ -461,6 +431,7 @@ section {
     position: relative;
     display: inline-block;
     padding-bottom: 0.5rem;
+    text-shadow: 0px 2px 4px rgba(0, 0, 0, 1);
 }
 
 .interview-title:after {
@@ -474,54 +445,51 @@ section {
     background-color: var(--accent-color);
 }
 
-.interview-card {
-    background-color: rgba(42, 33, 24, 0.85);
-    border: 1px solid var(--card-border);
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    margin-bottom: 2rem;
-    height: 100%;
-    color: var(--text-color);
-    opacity: 1 !important; /* Force cards to be visible */
-    transform: none !important; /* Remove transform effects causing invisibility */
-}
-
 .interview-img {
     width: 120px;
     height: 120px;
     margin: 0 auto 1.5rem;
-    border: 5px solid #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border: 3px solid var(--accent-color); /* Goldener Rahmen */
     border-radius: 50%;
     overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
 }
 
 .interview-name {
-    text-align: center;
-    color: var(--primary-color);
+    font-weight: 700;
+    font-size: 1.6rem;
+    margin-top: 1rem;
     margin-bottom: 0.25rem;
+    color: var(--accent-color); /* Gold für Titel */
+    text-shadow: 0px 2px 5px rgba(0, 0, 0, 1); /* Stärkerer Schatten */
 }
 
 .interview-position {
-    text-align: center;
-    color: #666;
-    font-style: italic;
+    font-size: 1.1rem;
+    color: var(--light-text);
     margin-bottom: 1.5rem;
+    opacity: 0.9;
+    font-style: italic;
+    text-shadow: 0px 2px 4px rgba(0, 0, 0, 1);
 }
 
 .interview-content {
-    font-size: 0.9rem;
-    line-height: 1.6;
+    text-align: left;
+    padding: 1rem;
+    background-color: rgba(15, 12, 10, 0.6); /* Leicht dunklerer Inhaltsbereich */
+    border-radius: 6px;
     margin-bottom: 1.5rem;
 }
 
 .interview-content p {
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
 }
 
 .interview-content strong {
-    color: var(--primary-color);
+    color: var(--accent-color);
+    font-weight: 700;
+    text-shadow: 0px 1px 3px rgba(0, 0, 0, 1);
 }
 
 /* Handwerk & Qualität Section */
@@ -530,10 +498,11 @@ section {
     position: relative;
     color: var(--text-color);
     background-image: url('../images/backgrounds/chocolate-factory.jpg');
-    background-attachment: initial;
+    background-attachment: scroll;
     background-size: cover;
     background-position: center;
     will-change: transform;
+    z-index: 2;
 }
 
 .handwerk-subtitle {
@@ -542,6 +511,7 @@ section {
     margin-bottom: 1rem;
     position: relative;
     display: inline-block;
+    text-shadow: 0px 2px 4px rgba(0, 0, 0, 1);
 }
 
 .handwerk-subtitle:after {
@@ -560,6 +530,7 @@ section {
     border-radius: 8px;
     padding: 2rem;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    text-shadow: 0px 1px 3px rgba(0, 0, 0, 1);
 }
 
 .handwerk-text-container p {
@@ -642,10 +613,11 @@ section {
     position: relative;
     color: var(--text-color);
     background-image: url('../images/backgrounds/chocolate-truffle.jpg');
-    background-attachment: initial;
+    background-attachment: scroll;
     background-size: cover;
     background-position: center;
     will-change: transform;
+    z-index: 2;
 }
 
 .quiz-container, .memory-container {
@@ -735,10 +707,11 @@ section {
     position: relative;
     color: var(--text-color);
     background-image: url('../images/backgrounds/chocolate-praline.jpg');
-    background-attachment: initial;
+    background-attachment: scroll;
     background-size: cover;
     background-position: center;
     will-change: transform;
+    z-index: 2;
 }
 
 .contact-title {
@@ -890,6 +863,7 @@ section {
     .timeline-container:before {
         left: 40px;
         transform: translateX(0);
+        height: var(--timeline-height, 90%); /* Use consistent variable with a high default */
     }
     
     .timeline-dot {
@@ -981,6 +955,7 @@ section {
     
     .timeline-container:before {
         left: 30px;
+        height: var(--timeline-height, 90%); /* Use consistent variable with a high default */
     }
     
     .timeline-dot {
@@ -1004,6 +979,16 @@ section {
     
     .timeline-item {
         margin-bottom: 3rem;
+    }
+    
+    .founder-card,
+    .interview-card {
+        transform: translateY(30px);
+    }
+    
+    .founder-card.is-inview,
+    .interview-card.is-inview {
+        transform: translateY(0);
     }
 }
 
@@ -1100,35 +1085,26 @@ section {
     cursor: pointer;
 }
 
-/* Override AOS animations for these cards */
+/* Remove any forced animations */
 [data-aos="fade-right"].founder-card,
-[data-aos="fade-right"].interview-card,
-[data-aos="fade-left"].founder-card,
-[data-aos="fade-left"].interview-card,
-[data-aos="fade-up"].interview-card {
-    opacity: 1 !important;
-    transform: none !important;
+[data-aos="fade-left"].interview-card {
+    opacity: 0;
 }
 
 [data-aos="fade-right"].founder-card.aos-animate,
-[data-aos="fade-right"].interview-card.aos-animate,
-[data-aos="fade-left"].founder-card.aos-animate,
-[data-aos="fade-left"].interview-card.aos-animate,
-[data-aos="fade-up"].interview-card.aos-animate {
-    opacity: 1 !important;
-    transform: none !important;
+[data-aos="fade-left"].interview-card.aos-animate {
+    opacity: 1;
 }
 
 /* Parallax Section Styles */
 .parallax-section {
     position: relative;
-    height: 70vh; /* Changed from 100vh to 70vh */
-    width: 100%;
+    height: 100vh;
     overflow: hidden;
+    z-index: 2;
     display: flex;
-    align-items: center;
     justify-content: center;
-    color: var(--light-text);
+    align-items: center;
     margin: 0;
     padding: 0;
 }
@@ -1141,9 +1117,9 @@ section {
     height: 100%;
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
-    will-change: transform;
     z-index: -1;
+    will-change: transform;
+    transition: opacity 1.2s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 .parallax-overlay {
@@ -1152,22 +1128,25 @@ section {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: -1;
+    background-color: rgba(0, 0, 0, 0.15);
+    z-index: 1;
 }
 
 .parallax-content {
+    position: relative;
+    z-index: 2;
+    padding: 6rem 2rem;
+    color: #fff;
     text-align: center;
-    max-width: 800px;
-    padding: 2rem;
-    z-index: 1;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .parallax-content h2 {
     color: white;
     font-size: 3.5rem;
     margin-bottom: 1.5rem;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    text-shadow: 0px 2px 4px rgba(0, 0, 0, 1);
+    color: var(--accent-color);
 }
 
 .parallax-content p {
@@ -1230,8 +1209,85 @@ section {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.15);
     z-index: -1;
+}
+
+/* Scroll-Korrekturen für Sections */
+.geschichte-section,
+.menschen-section,
+.handwerk-section,
+.interaktion-section,
+.kontakt-section {
+    position: relative;
+    z-index: 2;
+    background-attachment: scroll;
+    min-height: 100vh;
+}
+
+/* Timeline-Container korrigieren */
+.timeline-container {
+    position: relative;
+    padding: 2rem 0;
+    overflow: visible;
+    margin-bottom: 50px;
+    z-index: 10;
+}
+
+/* Liquid Cursor Effect */
+.cursor-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+.cursor {
+    position: fixed;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    mix-blend-mode: difference;
+    transition: width 0.2s, height 0.2s;
+    backdrop-filter: blur(12px) contrast(1.2);
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 20px 10px rgba(255, 255, 255, 0.1);
+    z-index: 9999;
+}
+
+.cursor.active {
+    width: 40px;
+    height: 40px;
+    backdrop-filter: blur(20px) contrast(1.4);
+}
+
+.cursor-trail {
+    position: fixed;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    transition: width 0.1s, height 0.1s, opacity 0.3s;
+    backdrop-filter: blur(4px);
+    background: rgba(255, 255, 255, 0.05);
+    z-index: 9998;
+}
+
+/* Liquid distortion canvas */
+#liquid-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9997;
 }
 
 /* Responsive Adjustments for Parallax */
@@ -1282,4 +1338,81 @@ section {
     .parallax-section {
         height: 50vh; /* Added height adjustment for mobile */
     }
+}
+
+/* Locomotive Scroll Anpassungen */
+html.has-scroll-smooth {
+    overflow: hidden;
+}
+
+html.has-scroll-dragging {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.has-scroll-smooth body {
+    overflow: hidden;
+}
+
+.has-scroll-smooth [data-scroll-container] {
+    min-height: 100vh;
+}
+
+[data-scroll-direction="horizontal"] [data-scroll-container] {
+    height: 100vh;
+    display: inline-block;
+    white-space: nowrap;
+}
+
+[data-scroll-direction="horizontal"] [data-scroll-section] {
+    display: inline-block;
+    vertical-align: top;
+    white-space: nowrap;
+    height: 100%;
+}
+
+.interview-card {
+    text-align: center;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    background-color: rgba(25, 20, 15, 0.95); /* Noch dunklerer Hintergrund */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.8); /* Stärkerer Schatten */
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.founder-card.is-inview,
+.interview-card.is-inview {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.interview-img-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+/* Remove cursor styles */
+body {
+    cursor: auto;
+}
+
+.cursor-container,
+.cursor,
+.cursor-trail,
+#liquid-canvas {
+    display: none;
+}
+
+/* Ensure all cards are visible */
+.founder-card,
+.interview-card,
+.timeline-item {
+    opacity: 1;
+    visibility: visible;
 } 

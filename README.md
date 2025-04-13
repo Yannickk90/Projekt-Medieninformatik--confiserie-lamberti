@@ -47,6 +47,5 @@ The color scheme uses:
 
 ## Credits
 
-- Design: [Your Name]
-- Photography: [Credit for the chocolate images]
+- Design: Yannick K.
 - Content: Confiserie Lamberti

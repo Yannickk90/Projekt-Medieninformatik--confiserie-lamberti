@@ -1,0 +1,45 @@
+.cursor-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    mix-blend-mode: normal;
+    opacity: 1;
+}
+
+/* Hide default cursor */
+body {
+    cursor: none;
+}
+
+/* Ensure the cursor effect doesn't interfere with clickable elements */
+a, button, input, select, textarea {
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
+}
+
+/* Add a subtle cursor indicator */
+.cursor-container::after {
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    transition: transform 0.2s ease;
+    box-shadow: 0 0 4px rgba(255, 255, 255, 0.3);
+    z-index: 9999;
+}
+
+/* Add hover effect for interactive elements */
+a:hover ~ .cursor-container::after,
+button:hover ~ .cursor-container::after {
+    transform: translate(-50%, -50%) scale(1.5);
+    background: rgba(255, 255, 255, 0.7);
+} 
