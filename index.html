@@ -371,6 +371,164 @@
         </div>
     </section>
 
+    <!-- Interaktion Section -->
+    <section id="interaktion" class="interaktion-section">
+        <div class="container">
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8 text-center">
+                    <h2 class="section-title">Interaktion</h2>
+                    <p class="section-subtitle">Testen Sie Ihr Wissen und teilen Sie Ihre Erinnerungen</p>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-6 mb-5">
+                    <div class="quiz-container">
+                        <h3 class="quiz-title">Quiz: Wie gut kennen Sie Lamberti?</h3>
+                        <div id="quiz">
+                            <div class="quiz-question" id="question1">
+                                <h4>Frage 1: In welchem Jahr wurde die Confiserie Lamberti gegründet?</h4>
+                                <div class="form-check mt-3">
+                                    <input class="form-check-input" type="radio" name="q1" id="q1a" value="a">
+                                    <label class="form-check-label" for="q1a">1914</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q1" id="q1b" value="b">
+                                    <label class="form-check-label" for="q1b">1924</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q1" id="q1c" value="c">
+                                    <label class="form-check-label" for="q1c">1934</label>
+                                </div>
+                            </div>
+                            
+                            <div class="quiz-question" id="question2" style="display: none;">
+                                <h4>Frage 2: Wer gründete die Confiserie Lamberti?</h4>
+                                <div class="form-check mt-3">
+                                    <input class="form-check-input" type="radio" name="q2" id="q2a" value="a">
+                                    <label class="form-check-label" for="q2a">Gustav Lamberti</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q2" id="q2b" value="b">
+                                    <label class="form-check-label" for="q2b">Friedrich Lamberti</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q2" id="q2c" value="c">
+                                    <label class="form-check-label" for="q2c">Thomas Lamberti</label>
+                                </div>
+                            </div>
+                            
+                            <div class="quiz-question" id="question3" style="display: none;">
+                                <h4>Frage 3: In welchem Jahr wurde das Café Lamberti eröffnet?</h4>
+                                <div class="form-check mt-3">
+                                    <input class="form-check-input" type="radio" name="q3" id="q3a" value="a">
+                                    <label class="form-check-label" for="q3a">1989</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q3" id="q3b" value="b">
+                                    <label class="form-check-label" for="q3b">1999</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q3" id="q3c" value="c">
+                                    <label class="form-check-label" for="q3c">2009</label>
+                                </div>
+                            </div>
+                            
+                            <div class="quiz-question" id="question4" style="display: none;">
+                                <h4>Frage 4: Wer übernahm die Confiserie im Jahr 1978?</h4>
+                                <div class="form-check mt-3">
+                                    <input class="form-check-input" type="radio" name="q4" id="q4a" value="a">
+                                    <label class="form-check-label" for="q4a">Thomas Lamberti</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q4" id="q4b" value="b">
+                                    <label class="form-check-label" for="q4b">Margarethe Lamberti</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q4" id="q4c" value="c">
+                                    <label class="form-check-label" for="q4c">Friedrich Lamberti Jr.</label>
+                                </div>
+                            </div>
+                            
+                            <div class="quiz-question" id="question5" style="display: none;">
+                                <h4>Frage 5: Welches Jubiläum feiert Lamberti im Jahr 2024?</h4>
+                                <div class="form-check mt-3">
+                                    <input class="form-check-input" type="radio" name="q5" id="q5a" value="a">
+                                    <label class="form-check-label" for="q5a">75 Jahre</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q5" id="q5b" value="b">
+                                    <label class="form-check-label" for="q5b">90 Jahre</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q5" id="q5c" value="c">
+                                    <label class="form-check-label" for="q5c">100 Jahre</label>
+                                </div>
+                            </div>
+                            
+                            <div id="quiz-results" style="display: none;">
+                                <h4>Ihr Ergebnis:</h4>
+                                <p id="results-text"></p>
+                                <div id="correct-answers" class="mt-3"></div>
+                                <button id="restart-quiz" class="btn btn-primary mt-3">Quiz neu starten</button>
+                            </div>
+                            
+                            <div class="quiz-navigation mt-4">
+                                <button id="prev-question" class="btn btn-outline-primary" style="display: none;">Zurück</button>
+                                <button id="next-question" class="btn btn-primary">Weiter</button>
+                                <button id="submit-quiz" class="btn btn-success" style="display: none;">Ergebnis anzeigen</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6">
+                    <div class="memory-container">
+                        <h3 class="memory-title">Ihre Erinnerung an Lamberti</h3>
+                        <p>Haben Sie eine besondere Erinnerung an die Confiserie Lamberti? Teilen Sie sie mit uns!</p>
+                        
+                        <form id="memory-form" class="mt-4">
+                            <div class="mb-3">
+                                <label for="memory-name" class="form-label">Ihr Name</label>
+                                <input type="text" class="form-control" id="memory-name" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="memory-year" class="form-label">Jahr der Erinnerung</label>
+                                <select class="form-select" id="memory-year" required>
+                                    <option value="" selected disabled>Bitte wählen</option>
+                                    <option value="2020er">2020er Jahre</option>
+                                    <option value="2010er">2010er Jahre</option>
+                                    <option value="2000er">2000er Jahre</option>
+                                    <option value="1990er">1990er Jahre</option>
+                                    <option value="1980er">1980er Jahre</option>
+                                    <option value="1970er">1970er Jahre oder früher</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="memory-text" class="form-label">Ihre Erinnerung</label>
+                                <textarea class="form-control" id="memory-text" rows="5" required></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label for="memory-image" class="form-label">Bild hochladen (optional)</label>
+                                <input class="form-control" type="file" id="memory-image" accept="image/*">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Erinnerung speichern</button>
+                        </form>
+                        
+                        <div id="memory-saved" class="alert alert-success mt-3" style="display: none;">
+                            Vielen Dank für Ihre Erinnerung! Sie wurde lokal gespeichert.
+                        </div>
+                        
+                        <div id="memory-display" class="mt-5" style="display: none;">
+                            <h4>Gespeicherte Erinnerungen:</h4>
+                            <div id="memory-list"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Galerie Modals -->
     <div class="modal fade" id="galleryModal1" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-lg">
