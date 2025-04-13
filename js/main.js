@@ -450,10 +450,10 @@ const scroll = new LocomotiveScroll({
     el: document.querySelector('[data-scroll-container]'),
     smooth: true,
     smoothMobile: false,
-    multiplier: 0.9,
-    lerp: 0.07, // Linear interpolation, 0 = instant, 1 = never reaches target (0.07 is smooth)
+    multiplier: 0.7,
+    lerp: 0.05,
     getDirection: true,
-    inertia: 0.6,
+    inertia: 0.5,
     getSpeed: true,
     class: 'is-inview',
 });
@@ -466,7 +466,7 @@ window.addEventListener('load', () => {
 // Add data attributes for parallax effects to background elements
 document.querySelectorAll('.parallax-bg').forEach((bg, index) => {
     bg.setAttribute('data-scroll', '');
-    bg.setAttribute('data-scroll-speed', '-4');
+    bg.setAttribute('data-scroll-speed', '-3');
     bg.setAttribute('data-scroll-position', 'top');
     bg.setAttribute('data-scroll-direction', 'vertical');
 });
@@ -483,42 +483,87 @@ document.querySelectorAll('.parallax-content, .section-title, .section-subtitle'
     el.setAttribute('data-scroll-delay', '0.05');
 });
 
+// Add data-scroll attributes to timeline elements for better tracking
+document.querySelectorAll('.timeline-item').forEach((item, index) => {
+    item.setAttribute('data-scroll', '');
+    item.setAttribute('data-scroll-class', 'item-visible');
+    item.setAttribute('data-scroll-offset', '20%');
+    item.setAttribute('data-scroll-repeat', 'false');
+    item.setAttribute('data-scroll-call', 'timelineVisible');
+});
+
+// Make sure the timeline container is tracked
+if (document.querySelector('.timeline-container')) {
+    const timelineContainerElement = document.querySelector('.timeline-container');
+    timelineContainerElement.setAttribute('data-scroll', '');
+    timelineContainerElement.setAttribute('data-scroll-offset', '10%');
+    timelineContainerElement.setAttribute('data-scroll-repeat', 'false');
+}
+
 // Timeline animation
 let timelineItems = document.querySelectorAll('.timeline-item');
 let timelineContainer = document.querySelector('.timeline-container');
 
 if (timelineContainer) {
-    // Function to check if an element is in viewport
+    // Modify the viewport detection for Locomotive Scroll
     const isInViewport = function(el) {
         const rect = el.getBoundingClientRect();
         return (
-            rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.8
+            rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.9 &&
+            rect.bottom >= 100
         );
     };
     
     // Function to animate timeline items
     const animateTimelineItems = function() {
+        let anyVisible = false;
         timelineItems.forEach(function(item, index) {
             if (isInViewport(item)) {
+                anyVisible = true;
                 item.classList.add('item-visible');
                 
-                // Delay the animation based on item index
-                setTimeout(function() {
-                    // Animate the timeline line to the bottom of the visible item
-                    let totalHeight = item.offsetTop + item.offsetHeight - 40;
-                    timelineContainer.style.setProperty('--timeline-height', totalHeight + 'px');
-                }, 300);
+                // Maintain a minimum height for the timeline
+                let totalHeight = Math.max(
+                    item.offsetTop + item.offsetHeight - 40,
+                    timelineContainer.offsetHeight * 0.2
+                );
+                
+                timelineContainer.style.setProperty('--timeline-height', totalHeight + 'px');
             }
         });
+        
+        // If no items are visible but we have items, show the first one
+        if (!anyVisible && timelineItems.length > 0) {
+            timelineItems[0].classList.add('item-visible');
+            let totalHeight = timelineItems[0].offsetHeight;
+            timelineContainer.style.setProperty('--timeline-height', totalHeight + 'px');
+        }
     };
     
-    // Initial animation on page load
+    // Initial animation immediately and after a delay
+    animateTimelineItems();
     setTimeout(animateTimelineItems, 500);
+    setTimeout(animateTimelineItems, 1000);
     
-    // Update on scroll
+    // Update on scroll events from Locomotive
+    scroll.on('scroll', function() {
+        animateTimelineItems();
+    });
+    
+    // Force animation update after Locomotive updates
+    scroll.on('call', function(value, way, obj) {
+        if (way === 'enter') {
+            animateTimelineItems();
+        }
+    });
+    
+    // Regular scroll backup for non-smooth scroll devices
     document.addEventListener('scroll', function() {
         animateTimelineItems();
     });
+    
+    // Update when Locomotive Scroll updates
+    scroll.on('update', animateTimelineItems);
 }
 
 // Image Modal
@@ -824,4 +869,46 @@ window.addEventListener('resize', () => {
 // Re-init Locomotive Scroll after all dynamic content is loaded
 setTimeout(() => {
     scroll.update();
-}, 1000); 
+}, 1000);
+
+// Additional update to ensure smooth transitions after all content loads
+window.addEventListener('DOMContentLoaded', () => {
+    // Initial update
+    setTimeout(() => {
+        scroll.update();
+    }, 500);
+    
+    // Secondary update after images likely loaded
+    setTimeout(() => {
+        scroll.update();
+    }, 2000);
+});
+
+// Force timeline update after everything loads
+window.addEventListener('load', () => {
+    const timeline = document.querySelector('.timeline-container');
+    if (timeline) {
+        // Make sure at least the first item is visible
+        const firstItem = document.querySelector('.timeline-item');
+        if (firstItem) {
+            firstItem.classList.add('item-visible');
+            
+            // Set timeline height based on the first visible item
+            const initialHeight = Math.max(firstItem.offsetHeight, timeline.offsetHeight * 0.3);
+            timeline.style.setProperty('--timeline-height', initialHeight + 'px');
+            
+            // Force all items to check visibility
+            document.querySelectorAll('.timeline-item').forEach(item => {
+                const rect = item.getBoundingClientRect();
+                if (rect.top <= window.innerHeight * 0.9 && rect.bottom >= 100) {
+                    item.classList.add('item-visible');
+                }
+            });
+        }
+    }
+    
+    // Update Locomotive Scroll
+    if (typeof scroll !== 'undefined') {
+        scroll.update();
+    }
+}); 
