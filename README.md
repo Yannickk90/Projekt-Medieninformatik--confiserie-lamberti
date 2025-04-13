@@ -4,19 +4,20 @@ This is the dark chocolate themed version of the Confiserie Lamberti website. Th
 
 ## Background Images
 
-The website requires 4 high-quality chocolate images to be placed in the `images/backgrounds/` directory:
+The website requires 5 high-quality chocolate images to be placed in the `images/backgrounds/` directory:
 
 1. `chocolate-praline.jpg` - The main hero background showing a chocolate praline with red toppings
 2. `chocolate-liquid.jpg` - A swirling liquid chocolate background
 3. `chocolate-production.jpg` - Chocolate production with rows of pralines
-4. `chocolate-truffle.jpg` - Close-up of chocolate truffle on a dark surface
+4. `chocolate-factory.jpg` - Chocolate factory/workshop image with dark atmosphere
+5. `chocolate-truffle.jpg` - Close-up of chocolate truffle on a dark surface
 
-These images should be high resolution and will be used as full-page parallax backgrounds between the main content sections.
+These images should be high resolution and will be used as full-page parallax backgrounds that smoothly transition as the user scrolls through the content sections.
 
 ## Design Features
 
 - Dark chocolate theme with gold accents
-- Full-page parallax backgrounds
+- Full-page parallax backgrounds with smooth transitions
 - Semi-transparent dark cards for content
 - Elegant typography
 - Responsive layout that works on all devices
@@ -32,7 +33,7 @@ The website uses:
 
 ## Setting Up
 
-1. Place the 4 chocolate background images in the `images/backgrounds/` directory
+1. Place the 5 chocolate background images in the `images/backgrounds/` directory
 2. Make sure all other images and content are properly linked
 3. Test the responsiveness on different devices
 

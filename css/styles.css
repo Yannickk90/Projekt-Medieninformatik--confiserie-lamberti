@@ -177,6 +177,10 @@ section {
     background-color: transparent;
     position: relative;
     color: var(--light-text);
+    background-image: url('../images/backgrounds/chocolate-liquid.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
 }
 
 .timeline-container {
@@ -391,6 +395,10 @@ section {
     background-color: transparent;
     position: relative;
     color: var(--text-color);
+    background-image: url('../images/backgrounds/chocolate-production.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
 }
 
 .team-photo {
@@ -509,6 +517,10 @@ section {
     background-color: transparent;
     position: relative;
     color: var(--text-color);
+    background-image: url('../images/backgrounds/chocolate-factory.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
 }
 
 .handwerk-subtitle {
@@ -616,6 +628,10 @@ section {
     background-color: transparent;
     position: relative;
     color: var(--text-color);
+    background-image: url('../images/backgrounds/chocolate-truffle.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
 }
 
 .quiz-container, .memory-container {
@@ -704,6 +720,10 @@ section {
     background-color: transparent;
     position: relative;
     color: var(--text-color);
+    background-image: url('../images/backgrounds/chocolate-praline.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
 }
 
 .contact-title {
@@ -1193,6 +1213,10 @@ section {
     background-image: url('../images/backgrounds/chocolate-production.jpg');
 }
 
+.parallax-factory {
+    background-image: url('../images/backgrounds/chocolate-factory.jpg');
+}
+
 .parallax-anniversary {
     background-image: url('../images/backgrounds/chocolate-truffle.jpg');
 }
@@ -1215,7 +1239,12 @@ section {
 
 /* Responsive Adjustments for Parallax */
 @media (max-width: 992px) {
-    .parallax-bg {
+    .parallax-bg,
+    .geschichte-section,
+    .menschen-section,
+    .handwerk-section,
+    .interaktion-section,
+    .kontakt-section {
         /* On mobile, fixed attachment can cause issues */
         background-attachment: scroll;
     }
@@ -1226,10 +1255,6 @@ section {
     
     .parallax-content p {
         font-size: 1.1rem;
-    }
-    
-    body {
-        background-attachment: scroll;
     }
 }
 
