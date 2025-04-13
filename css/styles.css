@@ -32,7 +32,53 @@ h1, h2, h3, h4, h5, h6 {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.7); /* Verstärkte Abdunklung für bessere Lesbarkeit */
+}
+
+.hero-section h1 {
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin-bottom: 1rem;
+}
+
+.hero-section .lead {
+    color: white;
+    font-size: 1.5rem;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    margin-bottom: 2rem;
+}
+
+.hero-link {
+    color: var(--accent-color);
+    font-size: 1.25rem;
+    text-decoration: none;
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    position: relative;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.hero-link:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--accent-color);
+    transform: scaleX(0.7);
+    transform-origin: center;
+    transition: transform 0.3s ease;
+}
+
+.hero-link:hover {
+    color: white;
+}
+
+.hero-link:hover:after {
+    transform: scaleX(1);
 }
 
 /* Navigation */
