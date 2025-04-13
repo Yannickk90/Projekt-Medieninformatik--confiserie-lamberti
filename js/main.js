@@ -1,15 +1,40 @@
-// Initialize AOS (Animate On Scroll)
+// Initialize AOS (Animate On Scroll) with reduced effects
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize AOS animations (für andere Elemente auf der Seite)
+    // Initialize AOS animations with reduced settings for better compatibility with Locomotive
     AOS.init({
-        duration: 800,
-        easing: 'ease-in-out',
-        once: false,
+        duration: 600,
+        easing: 'ease-out',
+        once: true, // Changed to true - elements should only animate once
         mirror: false,
         anchorPlacement: 'top-bottom',
-        offset: 120,
-        delay: 100
+        offset: 80, // Reduced offset for earlier animation
+        delay: 50, // Reduced delay
+        disable: 'mobile' // Disable on mobile for better performance
     });
+    
+    // Force reveal founder and interview cards immediately
+    document.querySelectorAll('.founder-card, .interview-card').forEach(card => {
+        card.classList.add('aos-animate');
+        card.style.opacity = '1';
+        card.style.transform = 'none';
+    });
+    
+    // Show all timeline items initially with a small delay
+    setTimeout(() => {
+        const timelineItems = document.querySelectorAll('.timeline-item');
+        timelineItems.forEach((item, index) => {
+            setTimeout(() => {
+                item.classList.add('item-visible');
+            }, index * 150); // Stagger the appearance slightly
+        });
+        
+        // Update timeline vertical line
+        const timelineContainer = document.querySelector('.timeline-container');
+        if (timelineContainer) {
+            const timelineHeight = timelineContainer.offsetHeight * 0.8;
+            timelineContainer.style.setProperty('--timeline-height', timelineHeight + 'px');
+        }
+    }, 200);
 
     // Timeline-Animation
     const timeline = document.querySelector('.timeline-container');
@@ -906,6 +931,45 @@ window.addEventListener('load', () => {
             });
         }
     }
+    
+    // Update Locomotive Scroll
+    if (typeof scroll !== 'undefined') {
+        scroll.update();
+    }
+});
+
+// Load handler to ensure everything is visible
+window.addEventListener('load', () => {
+    // Force all AOS animations to complete
+    document.querySelectorAll('[data-aos]').forEach(el => {
+        el.classList.add('aos-animate');
+    });
+    
+    // Ensure timeline is visible
+    const timeline = document.querySelector('.timeline-container');
+    if (timeline) {
+        const items = document.querySelectorAll('.timeline-item');
+        
+        // Make all items visible
+        items.forEach(item => {
+            item.classList.add('item-visible');
+        });
+        
+        // Set timeline height to full height
+        const lastItem = items[items.length - 1];
+        if (lastItem) {
+            const totalHeight = lastItem.offsetTop + lastItem.offsetHeight;
+            timeline.style.setProperty('--timeline-height', totalHeight + 'px');
+        } else {
+            timeline.style.setProperty('--timeline-height', '100%');
+        }
+    }
+    
+    // Make all cards visible
+    document.querySelectorAll('.founder-card, .interview-card').forEach(card => {
+        card.style.opacity = '1';
+        card.style.transform = 'none';
+    });
     
     // Update Locomotive Scroll
     if (typeof scroll !== 'undefined') {

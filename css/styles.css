@@ -202,18 +202,18 @@ section {
     top: 0;
     left: 50%;
     width: 4px;
-    height: var(--timeline-height, 10%); /* Changed from 0 to 10% to be visible initially */
+    height: var(--timeline-height, 30%); /* Increased default height to 30% */
     background-color: var(--accent-color);
     transform: translateX(-50%);
     z-index: 0;
-    transform-origin: top;
     transition: height 0.8s ease-out;
+    opacity: 1; /* Ensure the line is always visible */
 }
 
 /* Timeline-Item-Sichtbarkeit */
 .timeline-item {
-    opacity: 0.1; /* Changed from 0 to 0.1 to be slightly visible initially */
-    transform: translateY(30px); /* Reduced from 50px to 30px for less dramatic effect */
+    opacity: 0.5; /* Increased from 0.1 to 0.5 for better initial visibility */
+    transform: translateY(20px); /* Reduced from 30px to 20px for less dramatic effect */
     transition: opacity 0.8s ease-out, transform 0.8s ease-out;
     position: relative;
     margin-bottom: 3rem;
@@ -425,10 +425,13 @@ section {
     transition: transform 0.3s ease;
     border-radius: 8px;
     color: var(--text-color);
+    opacity: 1 !important; /* Force cards to be visible */
+    transform: none !important; /* Remove transform effects causing invisibility */
 }
 
 .founder-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-5px) !important; /* Restore hover effect */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
 }
 
 .founder-img {
@@ -480,6 +483,8 @@ section {
     margin-bottom: 2rem;
     height: 100%;
     color: var(--text-color);
+    opacity: 1 !important; /* Force cards to be visible */
+    transform: none !important; /* Remove transform effects causing invisibility */
 }
 
 .interview-img {
@@ -1095,43 +1100,23 @@ section {
     cursor: pointer;
 }
 
+/* Override AOS animations for these cards */
 [data-aos="fade-right"].founder-card,
-[data-aos="fade-right"].interview-card {
-    transform: translateX(-50px) scale(0.95);
-    opacity: 0;
+[data-aos="fade-right"].interview-card,
+[data-aos="fade-left"].founder-card,
+[data-aos="fade-left"].interview-card,
+[data-aos="fade-up"].interview-card {
+    opacity: 1 !important;
+    transform: none !important;
 }
 
 [data-aos="fade-right"].founder-card.aos-animate,
-[data-aos="fade-right"].interview-card.aos-animate {
-    transform: translateX(0) scale(1);
-    opacity: 1;
-}
-
-[data-aos="fade-left"].founder-card,
-[data-aos="fade-left"].interview-card {
-    transform: translateX(50px) scale(0.95);
-    opacity: 0;
-}
-
+[data-aos="fade-right"].interview-card.aos-animate,
 [data-aos="fade-left"].founder-card.aos-animate,
-[data-aos="fade-left"].interview-card.aos-animate {
-    transform: translateX(0) scale(1);
-    opacity: 1;
-}
-
-[data-aos="fade-up"].interview-card {
-    transform: translateY(30px) scale(0.95);
-    opacity: 0;
-}
-
+[data-aos="fade-left"].interview-card.aos-animate,
 [data-aos="fade-up"].interview-card.aos-animate {
-    transform: translateY(0) scale(1);
-    opacity: 1;
-}
-
-.founder-card,
-.interview-card {
-    transition: transform 0.8s ease-out, opacity 0.8s ease-out, box-shadow 0.3s ease;
+    opacity: 1 !important;
+    transform: none !important;
 }
 
 /* Parallax Section Styles */
