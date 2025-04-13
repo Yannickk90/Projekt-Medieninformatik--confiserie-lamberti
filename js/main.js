@@ -443,4 +443,385 @@ document.addEventListener('DOMContentLoaded', function() {
             document.body.style.overflow = 'auto';
         }
     });
-}); 
+});
+
+// Initialize Locomotive Scroll
+const scroll = new LocomotiveScroll({
+    el: document.querySelector('[data-scroll-container]'),
+    smooth: true,
+    smoothMobile: false,
+    multiplier: 0.9,
+    lerp: 0.07, // Linear interpolation, 0 = instant, 1 = never reaches target (0.07 is smooth)
+    getDirection: true,
+    inertia: 0.6,
+    getSpeed: true,
+    class: 'is-inview',
+});
+
+// Refresh Locomotive Scroll when all images are loaded
+window.addEventListener('load', () => {
+    scroll.update();
+});
+
+// Add data attributes for parallax effects to background elements
+document.querySelectorAll('.parallax-bg').forEach((bg, index) => {
+    bg.setAttribute('data-scroll', '');
+    bg.setAttribute('data-scroll-speed', '-4');
+    bg.setAttribute('data-scroll-position', 'top');
+    bg.setAttribute('data-scroll-direction', 'vertical');
+});
+
+// Add data scroll attributes to section containers for smooth transitions
+document.querySelectorAll('section').forEach((section) => {
+    section.setAttribute('data-scroll-section', '');
+});
+
+// Set up content elements with reveal animation
+document.querySelectorAll('.parallax-content, .section-title, .section-subtitle').forEach((el) => {
+    el.setAttribute('data-scroll', '');
+    el.setAttribute('data-scroll-speed', '1');
+    el.setAttribute('data-scroll-delay', '0.05');
+});
+
+// Timeline animation
+let timelineItems = document.querySelectorAll('.timeline-item');
+let timelineContainer = document.querySelector('.timeline-container');
+
+if (timelineContainer) {
+    // Function to check if an element is in viewport
+    const isInViewport = function(el) {
+        const rect = el.getBoundingClientRect();
+        return (
+            rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.8
+        );
+    };
+    
+    // Function to animate timeline items
+    const animateTimelineItems = function() {
+        timelineItems.forEach(function(item, index) {
+            if (isInViewport(item)) {
+                item.classList.add('item-visible');
+                
+                // Delay the animation based on item index
+                setTimeout(function() {
+                    // Animate the timeline line to the bottom of the visible item
+                    let totalHeight = item.offsetTop + item.offsetHeight - 40;
+                    timelineContainer.style.setProperty('--timeline-height', totalHeight + 'px');
+                }, 300);
+            }
+        });
+    };
+    
+    // Initial animation on page load
+    setTimeout(animateTimelineItems, 500);
+    
+    // Update on scroll
+    document.addEventListener('scroll', function() {
+        animateTimelineItems();
+    });
+}
+
+// Image Modal
+const images = document.querySelectorAll('.timeline-image img, .gallery-item img');
+const modal = document.getElementById('imageModal');
+const modalImg = document.getElementById('modalImage');
+const captionText = document.getElementById('imageCaption');
+const closeBtn = document.querySelector('.image-modal-close');
+
+if (modal && modalImg && closeBtn) {
+    images.forEach(img => {
+        img.onclick = function() {
+            modal.style.display = "block";
+            modalImg.src = this.src;
+            
+            // Get caption if available
+            let caption = this.alt;
+            let parentFigcaption = this.parentElement.querySelector('figcaption');
+            
+            if (parentFigcaption) {
+                caption = parentFigcaption.innerText;
+            }
+            
+            captionText.innerHTML = caption;
+            
+            // Prevent body scrolling
+            document.body.style.overflow = "hidden";
+        }
+    });
+    
+    // Close the modal
+    closeBtn.onclick = function() {
+        modal.style.display = "none";
+        document.body.style.overflow = "auto";
+    }
+    
+    // Also close when clicking outside the image
+    modal.onclick = function(event) {
+        if (event.target === modal) {
+            modal.style.display = "none";
+            document.body.style.overflow = "auto";
+        }
+    }
+    
+    // Close with Escape key
+    document.addEventListener('keydown', function(event) {
+        if (event.key === "Escape" && modal.style.display === "block") {
+            modal.style.display = "none";
+            document.body.style.overflow = "auto";
+        }
+    });
+}
+
+// Quiz functionality
+const quizElement = document.getElementById('quiz');
+
+if (quizElement) {
+    const questions = document.querySelectorAll('.quiz-question');
+    const prevBtn = document.getElementById('prev-question');
+    const nextBtn = document.getElementById('next-question');
+    const submitBtn = document.getElementById('submit-quiz');
+    const resultsDiv = document.getElementById('quiz-results');
+    const resultsText = document.getElementById('results-text');
+    const correctAnswersDiv = document.getElementById('correct-answers');
+    const restartBtn = document.getElementById('restart-quiz');
+    
+    let currentQuestion = 0;
+    
+    // Show first question initially
+    updateQuestionDisplay();
+    
+    // Event listeners for navigation buttons
+    if (nextBtn) {
+        nextBtn.addEventListener('click', function() {
+            currentQuestion++;
+            updateQuestionDisplay();
+        });
+    }
+    
+    if (prevBtn) {
+        prevBtn.addEventListener('click', function() {
+            currentQuestion--;
+            updateQuestionDisplay();
+        });
+    }
+    
+    if (submitBtn) {
+        submitBtn.addEventListener('click', showResults);
+    }
+    
+    if (restartBtn) {
+        restartBtn.addEventListener('click', restartQuiz);
+    }
+    
+    function updateQuestionDisplay() {
+        questions.forEach((question, index) => {
+            if (index === currentQuestion) {
+                question.style.display = 'block';
+            } else {
+                question.style.display = 'none';
+            }
+        });
+        
+        // Update button visibility
+        if (prevBtn) {
+            prevBtn.style.display = currentQuestion > 0 ? 'inline-block' : 'none';
+        }
+        
+        if (nextBtn && submitBtn) {
+            if (currentQuestion === questions.length - 1) {
+                nextBtn.style.display = 'none';
+                submitBtn.style.display = 'inline-block';
+            } else {
+                nextBtn.style.display = 'inline-block';
+                submitBtn.style.display = 'none';
+            }
+        }
+    }
+    
+    function showResults() {
+        // Check answers
+        const correctAnswers = ['b', 'b', 'b', 'b', 'c']; // Correct answers for each question
+        let score = 0;
+        let userAnswers = [];
+        
+        for (let i = 0; i < questions.length; i++) {
+            const selectedOption = document.querySelector(`input[name="q${i+1}"]:checked`);
+            if (selectedOption) {
+                userAnswers.push({
+                    question: i+1,
+                    selected: selectedOption.value,
+                    correct: selectedOption.value === correctAnswers[i]
+                });
+                
+                if (selectedOption.value === correctAnswers[i]) {
+                    score++;
+                }
+            } else {
+                userAnswers.push({
+                    question: i+1,
+                    selected: null,
+                    correct: false
+                });
+            }
+        }
+        
+        // Hide questions, show results
+        questions.forEach(question => {
+            question.style.display = 'none';
+        });
+        
+        if (prevBtn && nextBtn && submitBtn) {
+            prevBtn.style.display = 'none';
+            nextBtn.style.display = 'none';
+            submitBtn.style.display = 'none';
+        }
+        
+        if (resultsDiv && resultsText && correctAnswersDiv) {
+            resultsDiv.style.display = 'block';
+            
+            // Display score
+            const percentage = Math.round((score / questions.length) * 100);
+            resultsText.innerHTML = `Sie haben ${score} von ${questions.length} Fragen richtig beantwortet (${percentage}%).`;
+            
+            // Display correct answers
+            let answersHTML = '';
+            userAnswers.forEach(answer => {
+                const icon = answer.correct ? '✓' : '✗';
+                const color = answer.correct ? 'green' : 'red';
+                
+                answersHTML += `<p style="color: ${color};">${icon} Frage ${answer.question}: ${answer.selected ? (answer.correct ? 'Richtig' : 'Falsch') : 'Nicht beantwortet'}</p>`;
+            });
+            
+            correctAnswersDiv.innerHTML = answersHTML;
+        }
+    }
+    
+    function restartQuiz() {
+        // Reset all selections
+        const radioInputs = document.querySelectorAll('input[type="radio"]');
+        radioInputs.forEach(input => {
+            input.checked = false;
+        });
+        
+        // Reset to first question
+        currentQuestion = 0;
+        
+        // Hide results, show first question
+        if (resultsDiv) {
+            resultsDiv.style.display = 'none';
+        }
+        
+        updateQuestionDisplay();
+    }
+}
+
+// Memory functionality
+const memoryForm = document.getElementById('memory-form');
+const memorySavedAlert = document.getElementById('memory-saved');
+const memoryDisplay = document.getElementById('memory-display');
+const memoryList = document.getElementById('memory-list');
+
+if (memoryForm && memorySavedAlert && memoryDisplay && memoryList) {
+    // Load existing memories
+    loadMemories();
+    
+    memoryForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const nameInput = document.getElementById('memory-name');
+        const yearInput = document.getElementById('memory-year');
+        const textInput = document.getElementById('memory-text');
+        const imageInput = document.getElementById('memory-image');
+        
+        // Get form values
+        const name = nameInput.value;
+        const year = yearInput.value;
+        const text = textInput.value;
+        
+        // Create memory object
+        let memory = {
+            name: name,
+            year: year,
+            text: text,
+            date: new Date().toLocaleDateString('de-DE')
+        };
+        
+        // Handle image if provided
+        if (imageInput.files && imageInput.files[0]) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                memory.image = e.target.result;
+                saveMemory(memory);
+            };
+            reader.readAsDataURL(imageInput.files[0]);
+        } else {
+            saveMemory(memory);
+        }
+        
+        // Reset form
+        memoryForm.reset();
+        
+        // Show success message
+        memorySavedAlert.style.display = 'block';
+        setTimeout(function() {
+            memorySavedAlert.style.display = 'none';
+        }, 3000);
+    });
+    
+    function saveMemory(memory) {
+        // Get existing memories from localStorage
+        let memories = JSON.parse(localStorage.getItem('lambertierinnerungen')) || [];
+        
+        // Add new memory
+        memories.push(memory);
+        
+        // Save to localStorage
+        localStorage.setItem('lambertierinnerungen', JSON.stringify(memories));
+        
+        // Update display
+        loadMemories();
+    }
+    
+    function loadMemories() {
+        // Get memories from localStorage
+        let memories = JSON.parse(localStorage.getItem('lambertierinnerungen')) || [];
+        
+        // Show/hide memories display
+        if (memories.length > 0) {
+            memoryDisplay.style.display = 'block';
+            
+            // Generate HTML for memories
+            let html = '';
+            memories.forEach(function(memory) {
+                html += `
+                    <div class="memory-item">
+                        <div class="memory-header">
+                            <span>${memory.name}</span>
+                            <span>${memory.year} • ${memory.date}</span>
+                        </div>
+                        <div class="memory-content">${memory.text}</div>
+                        ${memory.image ? `
+                            <div class="memory-image">
+                                <img src="${memory.image}" alt="Erinnerung von ${memory.name}" class="img-fluid rounded">
+                            </div>
+                        ` : ''}
+                    </div>
+                `;
+            });
+            
+            memoryList.innerHTML = html;
+        } else {
+            memoryDisplay.style.display = 'none';
+        }
+    }
+}
+
+// Call Locomotive Scroll update on any resize event
+window.addEventListener('resize', () => {
+    scroll.update();
+});
+
+// Re-init Locomotive Scroll after all dynamic content is loaded
+setTimeout(() => {
+    scroll.update();
+}, 1000); 

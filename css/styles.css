@@ -16,7 +16,7 @@ body {
     background-color: var(--dark-bg);
     background-image: url('../images/backgrounds/chocolate-praline.jpg');
     background-size: cover;
-    background-attachment: fixed;
+    background-attachment: initial;
     background-position: center;
 }
 
@@ -100,6 +100,11 @@ h1, h2, h3, h4, h5, h6 {
     background-color: rgba(18, 18, 18, 0.9) !important;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
     border-bottom: 1px solid var(--card-border);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
 }
 
 .navbar-brand {
@@ -178,9 +183,10 @@ section {
     position: relative;
     color: var(--light-text);
     background-image: url('../images/backgrounds/chocolate-liquid.jpg');
-    background-attachment: fixed;
+    background-attachment: initial;
     background-size: cover;
     background-position: center;
+    will-change: transform;
 }
 
 .timeline-container {
@@ -396,9 +402,10 @@ section {
     position: relative;
     color: var(--text-color);
     background-image: url('../images/backgrounds/chocolate-production.jpg');
-    background-attachment: fixed;
+    background-attachment: initial;
     background-size: cover;
     background-position: center;
+    will-change: transform;
 }
 
 .team-photo {
@@ -518,9 +525,10 @@ section {
     position: relative;
     color: var(--text-color);
     background-image: url('../images/backgrounds/chocolate-factory.jpg');
-    background-attachment: fixed;
+    background-attachment: initial;
     background-size: cover;
     background-position: center;
+    will-change: transform;
 }
 
 .handwerk-subtitle {
@@ -629,9 +637,10 @@ section {
     position: relative;
     color: var(--text-color);
     background-image: url('../images/backgrounds/chocolate-truffle.jpg');
-    background-attachment: fixed;
+    background-attachment: initial;
     background-size: cover;
     background-position: center;
+    will-change: transform;
 }
 
 .quiz-container, .memory-container {
@@ -721,9 +730,1428 @@ section {
     position: relative;
     color: var(--text-color);
     background-image: url('../images/backgrounds/chocolate-praline.jpg');
-    background-attachment: fixed;
+    background-attachment: initial;
     background-size: cover;
     background-position: center;
+    will-change: transform;
+}
+
+.contact-title {
+    color: var(--accent-color);
+    margin-bottom: 1.5rem;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 0.5rem;
+}
+
+.contact-title:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 40px;
+    height: 2px;
+    background-color: var(--accent-color);
+}
+
+.contact-info {
+    background-color: rgba(42, 33, 24, 0.85);
+    border: 1px solid var(--card-border);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    height: 100%;
+}
+
+.address {
+    line-height: 1.7;
+}
+
+.opening-hours h4, .social-media h4 {
+    color: var(--light-text);
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.table-sm td {
+    padding: 0.4rem 0.5rem;
+    color: var(--text-color);
+}
+
+.social-icons {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: var(--accent-color);
+    color: var(--dark-bg);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+    background-color: var(--light-text);
+    transform: translateY(-3px);
+}
+
+.map-container {
+    background-color: rgba(42, 33, 24, 0.85);
+    border: 1px solid var(--card-border);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    height: 100%;
+}
+
+.map {
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid var(--card-border);
+}
+
+/* Footer Section */
+.footer-section {
+    background-color: rgba(30, 25, 20, 0.95);
+    color: var(--text-color);
+    padding: 3rem 0 1.5rem;
+    border-top: 1px solid var(--card-border);
+}
+
+.footer-title {
+    color: var(--accent-color);
+    margin-bottom: 1.5rem;
+    font-size: 1.3rem;
+}
+
+.footer-links {
+    list-style: none;
+    padding-left: 0;
+}
+
+.footer-links li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-links a {
+    color: var(--text-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--accent-color);
+    text-decoration: underline;
+}
+
+.footer-form .form-control {
+    background-color: rgba(20, 15, 10, 0.8);
+    border-color: var(--card-border);
+    color: var(--text-color);
+}
+
+.footer-form .form-control::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.footer-form .btn {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+    color: var(--dark-bg);
+}
+
+.copyright {
+    margin-top: 2rem;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.disclaimer {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    /* Timeline-Anpassungen für Tablets und kleinere Bildschirme */
+    .timeline-container {
+        padding-left: 40px; /* Platz für die verschobene Linie */
+    }
+    
+    .timeline-container:before {
+        left: 40px;
+        transform: translateX(0);
+    }
+    
+    .timeline-dot {
+        left: 40px;
+        transform: translateX(0);
+    }
+    
+    .timeline-date {
+        left: 90px; /* Mehr Abstand zum Punkt */
+        transform: translateX(0);
+        margin-top: -5px; /* Näher am Punkt */
+        text-align: left;
+        width: auto;
+    }
+    
+    .timeline-content {
+        width: 100%;
+        max-width: calc(100% - 70px);
+        margin-left: 70px;
+        margin-right: 0;
+        margin-top: 50px;
+        float: none !important;
+        padding: 1rem;
+        font-size: 0.9rem;
+    }
+    
+    .timeline-content h3 {
+        font-size: 1.3rem;
+    }
+    
+    .timeline-item:nth-child(odd) .timeline-content,
+    .timeline-item:nth-child(even) .timeline-content {
+        margin-left: 70px;
+        margin-right: 0;
+        float: none;
+        clear: both;
+    }
+    
+    /* Gleiche Transformation für alle Inhalte im mobilen Layout */
+    [data-aos="fade-right"].timeline-content,
+    [data-aos="fade-left"].timeline-content {
+        transform: translateX(30px);
+    }
+    
+    [data-aos="fade-right"].timeline-content.aos-animate,
+    [data-aos="fade-left"].timeline-content.aos-animate {
+        transform: translateX(0);
+    }
+    
+    .timeline-image, 
+    .timeline-image img,
+    .timeline-audio, 
+    .timeline-video {
+        max-height: 200px;
+    }
+    
+    .timeline-item {
+        margin-bottom: 2.5rem;
+        min-height: 120px;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Allgemeine Anpassungen für mobile Geräte */
+    .hero-section {
+        height: 80vh;
+    }
+    
+    h1 {
+        font-size: 2.5rem;
+    }
+    
+    .lead {
+        font-size: 1rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .section-title:after {
+        width: 60px;
+    }
+    
+    /* Timeline-spezifische Anpassungen für mobile Geräte */
+    .timeline-container {
+        padding-left: 30px;
+    }
+    
+    .timeline-container:before {
+        left: 30px;
+    }
+    
+    .timeline-dot {
+        left: 30px;
+        width: 16px;
+        height: 16px;
+    }
+    
+    .timeline-date {
+        left: 70px;
+        margin-top: -3px;
+        padding: 0.3rem 0.8rem;
+        font-size: 0.9rem;
+    }
+    
+    .timeline-content {
+        margin-left: 50px;
+        padding: 1rem;
+        margin-top: 55px;
+    }
+    
+    .timeline-item {
+        margin-bottom: 3rem;
+    }
+}
+
+@media (max-width: 576px) {
+    /* Extra Anpassungen für sehr kleine Displays */
+    .timeline-date {
+        width: auto;
+        white-space: nowrap;
+        font-size: 0.85rem;
+        padding: 0.25rem 0.7rem;
+        left: 65px;
+        top: -5px; /* Leicht nach oben verschoben */
+    }
+    
+    .timeline-content {
+        max-width: calc(100% - 40px);
+        margin-left: 40px;
+        margin-top: 60px; /* Noch mehr Abstand für sehr kleine Bildschirme */
+    }
+    
+    .timeline-dot {
+        width: 14px;
+        height: 14px;
+        border-width: 3px;
+    }
+    
+    /* Schriftgrößen für kleine Bildschirme anpassen */
+    .timeline-content h3 {
+        font-size: 1.2rem;
+    }
+    
+    .timeline-content {
+        font-size: 0.85rem;
+    }
+}
+
+/* Image Modal für Vollbildansicht */
+.image-modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.95);
+    transition: all 0.3s ease;
+}
+
+.image-modal-content {
+    margin: auto;
+    display: block;
+    max-width: 90%;
+    max-height: 90vh;
+    margin-top: 50px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    animation: zoom 0.3s ease;
+    border: 1px solid var(--card-border);
+}
+
+@keyframes zoom {
+    from {transform: scale(0.8); opacity: 0;}
+    to {transform: scale(1); opacity: 1;}
+}
+
+.image-modal-close {
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.image-modal-close:hover {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+.caption-container {
+    margin: 10px auto;
+    max-width: 80%;
+    text-align: center;
+    color: white;
+    padding: 10px;
+    font-style: italic;
+}
+
+/* Cursor für klickbare Bilder */
+.timeline-image {
+    cursor: pointer;
+}
+
+[data-aos="fade-right"].founder-card,
+[data-aos="fade-right"].interview-card {
+    transform: translateX(-50px) scale(0.95);
+    opacity: 0;
+}
+
+[data-aos="fade-right"].founder-card.aos-animate,
+[data-aos="fade-right"].interview-card.aos-animate {
+    transform: translateX(0) scale(1);
+    opacity: 1;
+}
+
+[data-aos="fade-left"].founder-card,
+[data-aos="fade-left"].interview-card {
+    transform: translateX(50px) scale(0.95);
+    opacity: 0;
+}
+
+[data-aos="fade-left"].founder-card.aos-animate,
+[data-aos="fade-left"].interview-card.aos-animate {
+    transform: translateX(0) scale(1);
+    opacity: 1;
+}
+
+[data-aos="fade-up"].interview-card {
+    transform: translateY(30px) scale(0.95);
+    opacity: 0;
+}
+
+[data-aos="fade-up"].interview-card.aos-animate {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+}
+
+.founder-card,
+.interview-card {
+    transition: transform 0.8s ease-out, opacity 0.8s ease-out, box-shadow 0.3s ease;
+}
+
+/* Parallax Section Styles */
+.parallax-section {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--light-text);
+}
+
+.parallax-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    will-change: transform;
+    z-index: -1;
+}
+
+.parallax-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+}
+
+.parallax-content {
+    text-align: center;
+    max-width: 800px;
+    padding: 2rem;
+    z-index: 1;
+}
+
+.parallax-content h2 {
+    color: white;
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.parallax-content p {
+    color: white;
+    font-size: 1.3rem;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+}
+
+.parallax-btn {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    background-color: var(--accent-color);
+    color: var(--dark-bg);
+    border: 2px solid var(--accent-color);
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.parallax-btn:hover {
+    background-color: transparent;
+    color: var(--light-text);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Individual Parallax Backgrounds */
+.parallax-intro {
+    background-image: url('../images/backgrounds/chocolate-praline.jpg');
+}
+
+.parallax-history {
+    background-image: url('../images/backgrounds/chocolate-liquid.jpg');
+}
+
+.parallax-craftsmanship {
+    background-image: url('../images/backgrounds/chocolate-production.jpg');
+}
+
+.parallax-factory {
+    background-image: url('../images/backgrounds/chocolate-factory.jpg');
+}
+
+.parallax-anniversary {
+    background-image: url('../images/backgrounds/chocolate-truffle.jpg');
+}
+
+/* Full-page Background for Sections */
+.geschichte-section::before,
+.menschen-section::before,
+.handwerk-section::before,
+.interaktion-section::before,
+.kontakt-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: -1;
+}
+
+/* Responsive Adjustments for Parallax */
+@media (max-width: 992px) {
+    .parallax-bg,
+    .geschichte-section,
+    .menschen-section,
+    .handwerk-section,
+    .interaktion-section,
+    .kontakt-section {
+        /* On mobile, fixed attachment can cause issues */
+        background-attachment: scroll;
+    }
+    
+    .parallax-content h2 {
+        font-size: 3rem;
+    }
+    
+    .parallax-content p {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .parallax-section {
+        /* Reduce height on smaller screens */
+        height: 80vh;
+    }
+    
+    .parallax-content h2 {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .parallax-content {
+        padding: 1.5rem;
+    }
+    
+    .parallax-content h2 {
+        font-size: 2rem;
+    }
+    
+    .parallax-content p {
+        font-size: 1rem;
+    }
+}
+
+/* Locomotive Scroll Styles */
+html.has-scroll-smooth {
+    overflow: hidden;
+}
+
+html.has-scroll-dragging {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.has-scroll-smooth body {
+    overflow: hidden;
+}
+
+.has-scroll-smooth [data-scroll-container] {
+    min-height: 100vh;
+}
+
+[data-scroll-direction="horizontal"] [data-scroll-container] {
+    height: 100vh;
+    display: inline-block;
+    white-space: nowrap;
+}
+
+[data-scroll-direction="horizontal"] [data-scroll-section] {
+    display: inline-block;
+    vertical-align: top;
+    white-space: nowrap;
+    height: 100%;
+}
+
+.c-scrollbar {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 11px;
+    height: 100%;
+    transform-origin: center right;
+    transition: transform 0.3s, opacity 0.3s;
+    opacity: 0;
+}
+
+.c-scrollbar:hover {
+    transform: scaleX(1.45);
+}
+
+.c-scrollbar:hover, .has-scroll-scrolling .c-scrollbar, .has-scroll-dragging .c-scrollbar {
+    opacity: 1;
+}
+
+[data-scroll-direction="horizontal"] .c-scrollbar {
+    width: 100%;
+    height: 10px;
+    top: auto;
+    bottom: 0;
+    transform: scaleY(1);
+}
+
+[data-scroll-direction="horizontal"] .c-scrollbar:hover {
+    transform: scaleY(1.3);
+}
+
+.c-scrollbar_thumb {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: var(--accent-color);
+    opacity: 0.5;
+    width: 7px;
+    border-radius: 10px;
+    margin: 2px;
+    cursor: -webkit-grab;
+    cursor: grab;
+}
+
+.has-scroll-dragging .c-scrollbar_thumb {
+    cursor: -webkit-grabbing;
+    cursor: grabbing;
+}
+
+[data-scroll-direction="horizontal"] .c-scrollbar_thumb {
+    right: auto;
+    bottom: 0;
+}
+
+/* Scroll Section Styles */
+[data-scroll-section] {
+    position: relative;
+}
+
+/* Parallax Section Styles */
+.parallax-section {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--light-text);
+}
+
+.parallax-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    will-change: transform;
+    z-index: -1;
+}
+
+.content-section {
+    padding: 80px 0;
+    position: relative;
+    z-index: 1;
+}
+
+/* Adjust fixed navigation to work with Locomotive Scroll */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+/* Remove fixed background attachment for sections since Locomotive will handle it */
+.geschichte-section,
+.menschen-section,
+.handwerk-section,
+.interaktion-section,
+.kontakt-section {
+    background-attachment: initial;
+    will-change: transform;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    color: var(--text-color);
+    padding-top: 56px; /* Space for fixed navbar */
+    background-color: var(--dark-bg);
+    background-attachment: initial;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+    color: var(--light-text);
+}
+
+/* Hero Section */
+.hero-section {
+    height: 100vh;
+    background-image: url('../images/backgrounds/chocolate-praline.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* Weiter reduzierte Abdunklung */
+}
+
+.hero-section h1 {
+    color: #ffffff;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
+    margin-bottom: 1rem;
+    font-size: 4rem;
+    font-weight: 800;
+    filter: brightness(1.2);
+}
+
+.hero-section .lead {
+    color: #ffffff;
+    font-size: 1.8rem;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
+    margin-bottom: 2rem;
+    font-weight: 600;
+    filter: brightness(1.2);
+}
+
+.hero-link {
+    color: var(--accent-color);
+    font-size: 1.5rem;
+    text-decoration: none;
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    position: relative;
+    display: inline-block;
+    transition: all 0.3s ease;
+    filter: brightness(1.2);
+}
+
+.hero-link:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--accent-color);
+    transform: scaleX(0.7);
+    transform-origin: center;
+    transition: transform 0.3s ease;
+}
+
+.hero-link:hover {
+    color: white;
+}
+
+.hero-link:hover:after {
+    transform: scaleX(1);
+}
+
+/* Navigation */
+.navbar {
+    background-color: rgba(18, 18, 18, 0.9) !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    border-bottom: 1px solid var(--card-border);
+}
+
+.navbar-brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: var(--accent-color) !important;
+}
+
+.nav-link {
+    color: var(--light-text) !important;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--accent-color) !important;
+}
+
+.navbar-toggler {
+    border-color: var(--card-border);
+}
+
+.navbar-toggler-icon {
+    filter: invert(1);
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+    color: var(--dark-bg);
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: transparent;
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+    transform: translateY(-2px);
+}
+
+/* Section Spacing */
+section {
+    padding: 80px 0;
+}
+
+/* Section Titles */
+.section-title {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    position: relative;
+    display: inline-block;
+    color: var(--light-text);
+}
+
+.section-title:after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -10px;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background-color: var(--accent-color);
+}
+
+.section-subtitle {
+    font-size: 1.2rem;
+    color: #A0A0A0;
+    margin-bottom: 2rem;
+}
+
+/* Geschichte Timeline */
+.geschichte-section {
+    background-color: transparent;
+    position: relative;
+    color: var(--light-text);
+    background-image: url('../images/backgrounds/chocolate-liquid.jpg');
+    background-attachment: initial;
+    background-size: cover;
+    background-position: center;
+    will-change: transform;
+}
+
+.timeline-container {
+    position: relative;
+    padding: 2rem 0;
+    overflow: visible;
+}
+
+/* Timeline vertical line */
+.timeline-container:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 4px;
+    height: 0; /* Startet mit 0 Höhe */
+    background-color: var(--accent-color);
+    transform: translateX(-50%);
+    z-index: 0;
+    transform-origin: top;
+    transition: height 0.8s ease-out; /* Langsamerer, flüssigerer Übergang */
+}
+
+/* Timeline-Item-Sichtbarkeit */
+.timeline-item {
+    opacity: 0; 
+    transform: translateY(50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    position: relative;
+    margin-bottom: 3rem;
+    clear: both;
+    overflow: visible;
+    min-height: 150px;
+    will-change: opacity, transform;
+}
+
+.timeline-item.item-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Timeline-Elements mit verzögerter Animation */
+.timeline-dot {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%) scale(0);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: var(--accent-color);
+    border: 4px solid var(--primary-color);
+    z-index: 2;
+    transition: transform 0.3s ease-out 0.1s;
+}
+
+.timeline-item.item-visible .timeline-dot {
+    transform: translateX(-50%) scale(1);
+}
+
+/* Timeline-Date Styling */
+.timeline-date {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0.5rem 1rem;
+    background-color: var(--primary-color);
+    color: var(--light-text);
+    font-weight: bold;
+    border-radius: 4px;
+    margin-top: -50px;
+    z-index: 2;
+    opacity: 0;
+    transition: opacity 0.3s ease-out;
+}
+
+.timeline-item.item-visible .timeline-date {
+    opacity: 1;
+}
+
+/* Timeline-Content Styling */
+.timeline-content {
+    position: relative;
+    width: 42%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1.2rem;
+    background-color: rgba(42, 33, 24, 0.85);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    z-index: 1;
+    font-size: 0.95rem;
+    opacity: 0;
+    transform: translateX(50px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    border: 1px solid var(--card-border);
+    color: var(--text-color);
+}
+
+.timeline-item:nth-child(even) .timeline-content {
+    transform: translateX(-50px);
+}
+
+.timeline-item.item-visible .timeline-content {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.timeline-content h3 {
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+    color: var(--accent-color);
+}
+
+.timeline-content p {
+    margin-bottom: 0.8rem;
+    line-height: 1.4;
+}
+
+/* Klarere Positionierung für alternierende Items */
+.timeline-item:after {
+    content: "";
+    display: table;
+    clear: both; /* Wichtig: Immer clear both verwenden */
+}
+
+.timeline-item:nth-child(odd) .timeline-content {
+    float: right;
+    margin-right: 0;
+    margin-left: auto;
+}
+
+.timeline-item:nth-child(even) .timeline-content {
+    float: left;
+    margin-left: 0;
+    margin-right: auto;
+}
+
+.timeline-image {
+    margin-top: 0.8rem;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-height: 250px;
+    transition: all 0.3s ease;
+}
+
+.timeline-image:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    z-index: 10;
+}
+
+.timeline-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    max-height: 250px;
+    transition: all 0.3s ease;
+}
+
+.timeline-image:hover img {
+    transform: scale(1.1);
+}
+
+/* Kleinere Audios und Videos */
+.timeline-audio, .timeline-video {
+    width: 100%;
+    max-height: 250px;
+    transition: all 0.3s ease;
+}
+
+.timeline-audio:hover,
+.timeline-video:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.audio-caption, .video-caption {
+    font-size: 0.9rem;
+    font-style: italic;
+    color: #666;
+    margin-top: 0.5rem;
+}
+
+/* Modals */
+.modal-content {
+    background-color: var(--dark-bg);
+    border: 1px solid var(--card-border);
+    color: var(--text-color);
+}
+
+.modal-header {
+    border-bottom-color: var(--card-border);
+}
+
+.modal-title {
+    color: var(--accent-color);
+}
+
+.modal-footer {
+    border-top-color: var(--card-border);
+}
+
+.btn-close {
+    filter: invert(1);
+}
+
+/* Menschen bei Lamberti Section */
+.menschen-section {
+    background-color: transparent;
+    position: relative;
+    color: var(--text-color);
+    background-image: url('../images/backgrounds/chocolate-production.jpg');
+    background-attachment: initial;
+    background-size: cover;
+    background-position: center;
+    will-change: transform;
+}
+
+.team-photo {
+    margin-bottom: 3rem;
+}
+
+.team-caption {
+    font-style: italic;
+    color: #A0A0A0;
+}
+
+.founder-card {
+    border: 1px solid var(--card-border);
+    background-color: rgba(42, 33, 24, 0.85);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    margin-bottom: 2rem;
+    transition: transform 0.3s ease;
+    border-radius: 8px;
+    color: var(--text-color);
+}
+
+.founder-card:hover {
+    transform: translateY(-5px);
+}
+
+.founder-img {
+    margin-bottom: 1rem;
+    border: 5px solid var(--card-border);
+}
+
+.founder-name {
+    color: var(--accent-color);
+    font-size: 1.5rem;
+    margin-bottom: 0.25rem;
+}
+
+.founder-title {
+    color: var(--light-text);
+    font-style: italic;
+    margin-bottom: 1rem;
+}
+
+.founder-text {
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.interview-title {
+    color: var(--accent-color);
+    position: relative;
+    display: inline-block;
+    padding-bottom: 0.5rem;
+}
+
+.interview-title:after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 2px;
+    background-color: var(--accent-color);
+}
+
+.interview-card {
+    background-color: rgba(42, 33, 24, 0.85);
+    border: 1px solid var(--card-border);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    margin-bottom: 2rem;
+    height: 100%;
+    color: var(--text-color);
+}
+
+.interview-img {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 1.5rem;
+    border: 5px solid #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.interview-name {
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 0.25rem;
+}
+
+.interview-position {
+    text-align: center;
+    color: #666;
+    font-style: italic;
+    margin-bottom: 1.5rem;
+}
+
+.interview-content {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.interview-content p {
+    margin-bottom: 1rem;
+}
+
+.interview-content strong {
+    color: var(--primary-color);
+}
+
+/* Handwerk & Qualität Section */
+.handwerk-section {
+    background-color: transparent;
+    position: relative;
+    color: var(--text-color);
+    background-image: url('../images/backgrounds/chocolate-factory.jpg');
+    background-attachment: initial;
+    background-size: cover;
+    background-position: center;
+    will-change: transform;
+}
+
+.handwerk-subtitle {
+    color: var(--accent-color);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    position: relative;
+    display: inline-block;
+}
+
+.handwerk-subtitle:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 40px;
+    height: 2px;
+    background-color: var(--accent-color);
+}
+
+.handwerk-text-container {
+    background-color: rgba(42, 33, 24, 0.85);
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+    padding: 2rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.handwerk-text-container p {
+    margin-bottom: 1.25rem;
+    line-height: 1.7;
+}
+
+.handwerk-gallery .gallery-item {
+    display: block;
+    overflow: hidden;
+    border-radius: 8px;
+    border: 1px solid var(--card-border);
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.handwerk-gallery .gallery-item:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+}
+
+.handwerk-gallery .gallery-item:hover:before {
+    opacity: 1;
+}
+
+.handwerk-gallery .gallery-item:hover {
+    transform: scale(1.02);
+}
+
+.handwerk-gallery img {
+    transition: transform 0.6s ease;
+}
+
+.handwerk-gallery .gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+.quality-badge {
+    padding: 1rem;
+    transition: transform 0.3s ease;
+    background-color: rgba(42, 33, 24, 0.7);
+    border-radius: 8px;
+    border: 1px solid var(--card-border);
+}
+
+.quality-badge:hover {
+    transform: translateY(-5px);
+}
+
+.quality-badge img {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 0.5rem;
+    filter: brightness(0.9) invert(0.2);
+}
+
+.quality-badge h5 {
+    font-size: 0.9rem;
+    color: var(--accent-color);
+    margin-bottom: 0;
+}
+
+.modal-caption {
+    font-style: italic;
+    color: #A0A0A0;
+    font-size: 0.9rem;
+}
+
+/* Interaktion Section */
+.interaktion-section {
+    background-color: transparent;
+    position: relative;
+    color: var(--text-color);
+    background-image: url('../images/backgrounds/chocolate-truffle.jpg');
+    background-attachment: initial;
+    background-size: cover;
+    background-position: center;
+    will-change: transform;
+}
+
+.quiz-container, .memory-container {
+    background-color: rgba(42, 33, 24, 0.85);
+    border: 1px solid var(--card-border);
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    height: 100%;
+}
+
+.quiz-title, .memory-title {
+    color: var(--accent-color);
+    margin-bottom: 1.5rem;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 0.5rem;
+}
+
+.quiz-title:after, .memory-title:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 50px;
+    height: 2px;
+    background-color: var(--accent-color);
+}
+
+.quiz-question h4 {
+    color: var(--light-text);
+    margin-bottom: 1.5rem;
+    font-size: 1.3rem;
+}
+
+.form-check-label {
+    cursor: pointer;
+}
+
+.form-check-input:checked {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+}
+
+.quiz-navigation {
+    display: flex;
+    justify-content: space-between;
+}
+
+.memory-container p {
+    margin-bottom: 1.5rem;
+}
+
+#memory-list .memory-item {
+    background-color: rgba(30, 25, 20, 0.9);
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+#memory-list .memory-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    color: var(--accent-color);
+    border-bottom: 1px solid var(--card-border);
+    padding-bottom: 0.5rem;
+}
+
+#memory-list .memory-content {
+    font-style: italic;
+    line-height: 1.6;
+}
+
+#memory-list .memory-image {
+    margin-top: 1rem;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid var(--card-border);
+}
+
+/* Kontakt Section */
+.kontakt-section {
+    background-color: transparent;
+    position: relative;
+    color: var(--text-color);
+    background-image: url('../images/backgrounds/chocolate-praline.jpg');
+    background-attachment: initial;
+    background-size: cover;
+    background-position: center;
+    will-change: transform;
 }
 
 .contact-title {
