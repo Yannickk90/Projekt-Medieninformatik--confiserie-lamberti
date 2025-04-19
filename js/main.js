@@ -39,141 +39,216 @@ document.addEventListener('DOMContentLoaded', function() {
         card.setAttribute('data-aos-duration', '1000');
     });
 
-    // Quiz Functionality
-    function initQuiz() {
-        const quizContainer = document.getElementById('quiz');
-        if (!quizContainer) return;
-        
-        const questions = document.querySelectorAll('.quiz-question');
-        const prevButton = document.getElementById('prev-question');
-        const nextButton = document.getElementById('next-question');
-        const submitButton = document.getElementById('submit-quiz');
-        const resultsDiv = document.getElementById('quiz-results');
-        const resultsText = document.getElementById('results-text');
-        const correctAnswersDiv = document.getElementById('correct-answers');
-        const restartButton = document.getElementById('restart-quiz');
-        
-        let currentQuestion = 0;
-        
-        // Correct answers
-        const correctAnswers = {
-            q1: 'b', // 1924
-            q2: 'b', // Friedrich Lamberti
-            q3: 'b', // 1999
-            q4: 'b', // Margarethe Lamberti
-            q5: 'c'  // 100 Jahre
-        };
-        
-        // Show the first question
-        showQuestion(currentQuestion);
-        
-        // Next button click handler
-        nextButton.addEventListener('click', function() {
-            if (currentQuestion < questions.length - 1) {
-                currentQuestion++;
-                showQuestion(currentQuestion);
-                
-                prevButton.style.display = 'block';
-                
-                if (currentQuestion === questions.length - 1) {
-                    nextButton.style.display = 'none';
-                    submitButton.style.display = 'block';
-                }
-            }
-        });
-        
-        // Previous button click handler
-        prevButton.addEventListener('click', function() {
-            if (currentQuestion > 0) {
-                currentQuestion--;
-                showQuestion(currentQuestion);
-                
-                if (currentQuestion === 0) {
-                    prevButton.style.display = 'none';
-                }
-                
-                if (currentQuestion < questions.length - 1) {
-                    nextButton.style.display = 'block';
-                    submitButton.style.display = 'none';
-                }
-            }
-        });
-        
-        // Submit button click handler
-        submitButton.addEventListener('click', function() {
-            let score = 0;
-            let userAnswers = {};
-            
-            for (let i = 1; i <= questions.length; i++) {
-                const selectedOption = document.querySelector(`input[name="q${i}"]:checked`);
-                if (selectedOption) {
-                    userAnswers[`q${i}`] = selectedOption.value;
-                    if (selectedOption.value === correctAnswers[`q${i}`]) {
-                        score++;
-                    }
-                }
-            }
-            
-            questions.forEach(question => {
-                question.style.display = 'none';
-            });
-            prevButton.style.display = 'none';
-            submitButton.style.display = 'none';
-            
-            resultsDiv.style.display = 'block';
-            
-            const percentage = (score / questions.length) * 100;
-            let feedback;
-            
-            if (percentage === 100) {
-                feedback = 'Hervorragend! Sie sind ein wahrer Lamberti-Experte!';
-            } else if (percentage >= 80) {
-                feedback = 'Sehr gut! Sie kennen die Geschichte von Lamberti wirklich gut.';
-            } else if (percentage >= 60) {
-                feedback = 'Gut gemacht! Sie haben ein solides Wissen über Lamberti.';
-            } else if (percentage >= 40) {
-                feedback = 'Nicht schlecht! Es gibt noch einiges über Lamberti zu entdecken.';
-            } else {
-                feedback = 'Vielleicht sollten Sie unsere Geschichtsseite noch einmal besuchen?';
-            }
-            
-            resultsText.innerHTML = `Sie haben ${score} von ${questions.length} Fragen richtig beantwortet (${percentage}%).<br>${feedback}`;
-            
-            correctAnswersDiv.innerHTML = '<h5>Die richtigen Antworten:</h5><ul>' +
-                '<li>Frage 1: 1924</li>' +
-                '<li>Frage 2: Friedrich Lamberti</li>' +
-                '<li>Frage 3: 1999</li>' +
-                '<li>Frage 4: Margarethe Lamberti</li>' +
-                '<li>Frage 5: 100 Jahre</li>' +
-                '</ul>';
-        });
-        
-        // Restart button click handler
-        restartButton.addEventListener('click', function() {
-            currentQuestion = 0;
-            
-            document.querySelectorAll('input[type="radio"]').forEach(radio => {
-                radio.checked = false;
-            });
-            
-            resultsDiv.style.display = 'none';
-            
-            showQuestion(currentQuestion);
-            nextButton.style.display = 'block';
-            prevButton.style.display = 'none';
-        });
-        
-        // Function to show a specific question
-        function showQuestion(questionIndex) {
-            questions.forEach((question, index) => {
-                question.style.display = index === questionIndex ? 'block' : 'none';
-            });
-        }
-    }
+    // Initialize Parallax Effect
+    initParallax();
+
+    // Initialize Smooth Scroll
+    initSmoothScroll();
 
     // Initialize Quiz
     initQuiz();
 });
+
+// Parallax Scrolling Effect
+function initParallax() {
+    const parallaxSections = document.querySelectorAll('.parallax-section');
+    
+    function updateParallax() {
+        parallaxSections.forEach(section => {
+            const distance = window.scrollY - section.offsetTop;
+            const parallaxBg = section.querySelector('.parallax-bg');
+            
+            if (parallaxBg && isElementInViewport(section)) {
+                // Scroll at different speeds for a parallax effect
+                const speed = 0.5; // adjust this value to control the parallax speed
+                const yPos = -(distance * speed);
+                parallaxBg.style.transform = `translateY(${yPos}px)`;
+            }
+        });
+    }
+    
+    function isElementInViewport(el) {
+        const rect = el.getBoundingClientRect();
+        return (
+            rect.bottom > 0 &&
+            rect.top < (window.innerHeight || document.documentElement.clientHeight)
+        );
+    }
+    
+    // Update on scroll
+    window.addEventListener('scroll', updateParallax);
+    
+    // Initial update
+    updateParallax();
+}
+
+// Smooth Scroll Implementation
+function initSmoothScroll() {
+    // Select all links with hashes
+    document.querySelectorAll('a[href*="#"]').forEach(anchor => {
+        // Skip links that don't actually link to anything or have role="tab"
+        if (anchor.getAttribute('role') === 'tab' || anchor.getAttribute('href') === '#') return;
+
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            
+            // Get the target element
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            
+            if (targetElement) {
+                // Collapse the navbar if it's expanded on mobile
+                const navbarToggler = document.querySelector('.navbar-toggler');
+                const navbarCollapse = document.querySelector('.navbar-collapse');
+                
+                if (navbarToggler && !navbarToggler.classList.contains('collapsed') && navbarCollapse) {
+                    navbarToggler.click();
+                }
+                
+                // Scroll to the target smoothly
+                window.scrollTo({
+                    top: targetElement.offsetTop - 70, // Adjust for fixed header
+                    behavior: 'smooth'
+                });
+                
+                // Update URL hash
+                history.pushState(null, null, targetId);
+            }
+        });
+    });
+}
+
+// Quiz Functionality
+function initQuiz() {
+    const quizContainer = document.getElementById('quiz');
+    if (!quizContainer) return;
+    
+    const questions = document.querySelectorAll('.quiz-question');
+    const prevButton = document.getElementById('prev-question');
+    const nextButton = document.getElementById('next-question');
+    const submitButton = document.getElementById('submit-quiz');
+    const resultsDiv = document.getElementById('quiz-results');
+    const resultsText = document.getElementById('results-text');
+    const correctAnswersDiv = document.getElementById('correct-answers');
+    const restartButton = document.getElementById('restart-quiz');
+    
+    let currentQuestion = 0;
+    
+    // Correct answers
+    const correctAnswers = {
+        q1: 'b', // 1924
+        q2: 'b', // Friedrich Lamberti
+        q3: 'b', // 1999
+        q4: 'b', // Margarethe Lamberti
+        q5: 'c'  // 100 Jahre
+    };
+    
+    // Show the first question
+    showQuestion(currentQuestion);
+    
+    // Next button click handler
+    nextButton.addEventListener('click', function() {
+        if (currentQuestion < questions.length - 1) {
+            currentQuestion++;
+            showQuestion(currentQuestion);
+            
+            prevButton.style.display = 'block';
+            
+            if (currentQuestion === questions.length - 1) {
+                nextButton.style.display = 'none';
+                submitButton.style.display = 'block';
+            }
+        }
+    });
+    
+    // Previous button click handler
+    prevButton.addEventListener('click', function() {
+        if (currentQuestion > 0) {
+            currentQuestion--;
+            showQuestion(currentQuestion);
+            
+            if (currentQuestion === 0) {
+                prevButton.style.display = 'none';
+            }
+            
+            if (currentQuestion < questions.length - 1) {
+                nextButton.style.display = 'block';
+                submitButton.style.display = 'none';
+            }
+        }
+    });
+    
+    // Submit button click handler
+    submitButton.addEventListener('click', function() {
+        let score = 0;
+        let userAnswers = {};
+        
+        for (let i = 1; i <= questions.length; i++) {
+            const selectedOption = document.querySelector(`input[name="q${i}"]:checked`);
+            if (selectedOption) {
+                userAnswers[`q${i}`] = selectedOption.value;
+                if (selectedOption.value === correctAnswers[`q${i}`]) {
+                    score++;
+                }
+            }
+        }
+        
+        questions.forEach(question => {
+            question.style.display = 'none';
+        });
+        prevButton.style.display = 'none';
+        submitButton.style.display = 'none';
+        
+        resultsDiv.style.display = 'block';
+        
+        const percentage = (score / questions.length) * 100;
+        let feedback;
+        
+        if (percentage === 100) {
+            feedback = 'Hervorragend! Sie sind ein wahrer Lamberti-Experte!';
+        } else if (percentage >= 80) {
+            feedback = 'Sehr gut! Sie kennen die Geschichte von Lamberti wirklich gut.';
+        } else if (percentage >= 60) {
+            feedback = 'Gut gemacht! Sie haben ein solides Wissen über Lamberti.';
+        } else if (percentage >= 40) {
+            feedback = 'Nicht schlecht! Es gibt noch einiges über Lamberti zu entdecken.';
+        } else {
+            feedback = 'Vielleicht sollten Sie unsere Geschichtsseite noch einmal besuchen?';
+        }
+        
+        resultsText.innerHTML = `Sie haben ${score} von ${questions.length} Fragen richtig beantwortet (${percentage}%).<br>${feedback}`;
+        
+        correctAnswersDiv.innerHTML = '<h5>Die richtigen Antworten:</h5><ul>' +
+            '<li>Frage 1: 1924</li>' +
+            '<li>Frage 2: Friedrich Lamberti</li>' +
+            '<li>Frage 3: 1999</li>' +
+            '<li>Frage 4: Margarethe Lamberti</li>' +
+            '<li>Frage 5: 100 Jahre</li>' +
+            '</ul>';
+    });
+    
+    // Restart button click handler
+    restartButton.addEventListener('click', function() {
+        currentQuestion = 0;
+        
+        document.querySelectorAll('input[type="radio"]').forEach(radio => {
+            radio.checked = false;
+        });
+        
+        resultsDiv.style.display = 'none';
+        
+        showQuestion(currentQuestion);
+        nextButton.style.display = 'block';
+        prevButton.style.display = 'none';
+    });
+    
+    // Function to show a specific question
+    function showQuestion(questionIndex) {
+        questions.forEach((question, index) => {
+            question.style.display = index === questionIndex ? 'block' : 'none';
+        });
+    }
+}
 
 // Initialize AOS (Animate On Scroll)
 document.addEventListener('DOMContentLoaded', function() {
