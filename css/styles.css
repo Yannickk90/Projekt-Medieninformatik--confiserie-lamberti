@@ -1415,4 +1415,49 @@ body {
 .timeline-item {
     opacity: 1;
     visibility: visible;
+}
+
+/* Praline Card Styling */
+.praline-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+    padding: 1.5rem;
+    height: 100%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.praline-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.praline-img-container {
+    margin-bottom: 1.5rem;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+}
+
+.praline-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    color: var(--accent-color);
+}
+
+.praline-description {
+    color: var(--text-color);
+    text-align: center;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* Klassiker Section */
+.klassiker-section {
+    position: relative;
+    padding: 6rem 0;
+    color: var(--text-color);
+    overflow: hidden;
 } 

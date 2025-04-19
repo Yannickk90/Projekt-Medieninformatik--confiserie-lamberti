@@ -16,39 +16,34 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
     <!-- Three.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <!-- Model Viewer für 3D-Modelle -->
-    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 </head>
 <body>
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="#"><img src="images/logo.png" alt="Confiserie Lamberti Logo" width="40" height="40"> Confiserie Lamberti</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <a class="navbar-brand" href="https://confiserie-lamberti.de">Confiserie Lamberti</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" href="#home">Home</a>
+                        <a class="nav-link" href="https://confiserie-lamberti.de">Startseite</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#geschichte">Geschichte</a>
+                        <a class="nav-link active" href="#">Unsere Geschichte</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#menschen">Menschen</a>
+                        <a class="nav-link" href="https://confiserie-lamberti.de/produkte">Produkte</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#handwerk">Handwerk</a>
+                        <a class="nav-link" href="https://confiserie-lamberti.de/cafe">Café</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#interaktion">Interaktion</a>
+                        <a class="nav-link" href="https://confiserie-lamberti.de/shop">Online-Shop</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#klassiker">Klassiker</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#kontakt">Kontakt</a>
+                        <a class="nav-link" href="https://confiserie-lamberti.de/kontakt">Kontakt</a>
                     </li>
                 </ul>
             </div>
@@ -613,80 +608,98 @@
         </div>
     </section>
 
-    <!-- Klassiker Section -->
-    <section id="klassiker" class="klassiker-section parallax-section">
-        <div class="parallax-bg" style="background-image: url('images/backgrounds/chocolate-truffle.jpg');"></div>
-        <div class="parallax-overlay"></div>
-        <div class="container parallax-content">
-            <h2 class="section-title" data-aos="fade-up">Unsere Klassiker</h2>
-            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="200">Entdecken Sie unsere zeitlosen Pralinen-Kreationen, die seit Generationen beliebt sind</p>
-            
-            <div class="row mt-5">
-                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="300">
-                    <div class="praline-card">
-                        <div class="praline-img-container">
-                            <model-viewer src="images/3d/Swirled.glb" 
-                                          alt="Swirled Praline" 
-                                          auto-rotate 
-                                          camera-controls 
-                                          shadow-intensity="1" 
-                                          exposure="0.7"
-                                          style="width: 100%; height: 300px;"></model-viewer>
-                        </div>
-                        <h3 class="praline-title">Die Swirled</h3>
-                        <p class="praline-description">
-                            Unsere legendäre Praline mit geschwungenen dunklen und hellen Schokoladenschichten. 
-                            Der cremige Kern aus Haselnussnougat wird von einem Hauch Vanille abgerundet. 
-                            Seit 1950 der absolute Verkaufsschlager.
-                        </p>
-                    </div>
+    <!-- Galerie Modals -->
+    <div class="modal fade" id="galleryModal1" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Praline-Herstellung bei Lamberti</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                
-                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="400">
-                    <div class="praline-card">
-                        <div class="praline-img-container">
-                            <model-viewer src="images/3d/Golden.glb" 
-                                          alt="Golden Praline" 
-                                          auto-rotate 
-                                          camera-controls 
-                                          shadow-intensity="1" 
-                                          exposure="0.7"
-                                          style="width: 100%; height: 300px;"></model-viewer>
-                        </div>
-                        <h3 class="praline-title">Die Golden</h3>
-                        <p class="praline-description">
-                            Unsere Luxus-Praline mit echter Blattgold-Verzierung. 
-                            Gefüllt mit einer Ganache aus Grand-Cru-Schokolade und einem Hauch von Cognac. 
-                            Ein wahres Meisterwerk der Confiserie-Kunst.
-                        </p>
-                    </div>
-                </div>
-                
-                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="500">
-                    <div class="praline-card">
-                        <div class="praline-img-container">
-                            <model-viewer src="images/3d/Caramel.glb" 
-                                          alt="Caramel Praline" 
-                                          auto-rotate 
-                                          camera-controls 
-                                          shadow-intensity="1" 
-                                          exposure="0.7"
-                                          style="width: 100%; height: 300px;"></model-viewer>
-                        </div>
-                        <h3 class="praline-title">Die Caramel</h3>
-                        <p class="praline-description">
-                            Der perfekte Gegensatz aus knackiger dunkler Schokolade und flüssigem Salzkaramell. 
-                            Thomas Lamberti perfektionierte dieses Rezept 1978 und machte es zu einem 
-                            unserer beliebtesten Klassiker.
-                        </p>
-                    </div>
+                <div class="modal-body">
+                    <img src="images/handwerk/praline-1.jpg" alt="Praline Herstellung - Großansicht" class="img-fluid">
+                    <p class="modal-caption mt-2">Die Herstellung unserer Pralinen erfordert höchste Präzision und jahrelange Erfahrung.</p>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+
+    <div class="modal fade" id="galleryModal2" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Handgemachte Pralinen</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="images/handwerk/praline-2.jpg" alt="Handgemachte Pralinen - Großansicht" class="img-fluid">
+                    <p class="modal-caption mt-2">Jede Praline wird einzeln von Hand gefüllt und dekoriert.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="galleryModal3" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Einblick in unsere Werkstatt</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="images/handwerk/werkstatt-1.jpg" alt="Werkstatt - Großansicht" class="img-fluid">
+                    <p class="modal-caption mt-2">In unserer Werkstatt verbinden sich traditionelle Handwerkskunst und moderne Anforderungen.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="galleryModal4" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Der Produktionsprozess</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="images/handwerk/werkstatt-2.jpg" alt="Produktionsprozess - Großansicht" class="img-fluid">
+                    <p class="modal-caption mt-2">Einige Maschinen sind seit Jahrzehnten in Betrieb und liefern bis heute perfekte Ergebnisse.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dokumenten-Modals -->
+    <div class="modal fade" id="document1924" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Erste Speisekarte (1924)</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="images/documents/speisekarte-1924.jpg" alt="Speisekarte von 1924" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="document1999" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Eröffnungseinladung Café Lamberti (1999)</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="images/documents/einladung-1999.jpg" alt="Eröffnungseinladung von 1999" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Kontakt Section -->
-    <section id="kontakt" class="kontakt-section parallax-section">
+    <section id="kontakt" class="kontakt-section">
         <div class="container">
             <div class="row justify-content-center mb-5">
                 <div class="col-lg-8 text-center">
