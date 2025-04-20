@@ -15,7 +15,8 @@ body {
     color: var(--text-color);
     margin: 0;
     padding: 0;
-    background-color: var(--dark-bg);
+    background: linear-gradient(135deg, #2A1506 0%, #3D1D09 20%, #532913 40%, #6B3518 60%, #724018 80%, #573115 100%);
+    background-attachment: fixed;
     min-height: 100vh;
     overflow-x: hidden;
     cursor: auto;
@@ -159,11 +160,11 @@ section {
 /* Section Titles */
 .section-title {
     font-size: 2.5rem;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     position: relative;
     display: inline-block;
     color: var(--accent-color);
-    text-shadow: 0px 3px 5px rgba(0, 0, 0, 1);
+    text-shadow: 0px 3px 8px rgba(0, 0, 0, 1);
 }
 
 .section-title:after {
@@ -186,7 +187,6 @@ section {
 
 /* Geschichte Timeline */
 .geschichte-section {
-    background: linear-gradient(135deg, #2A1506 0%, #572A0C 50%, #7C3C10 75%, #3D1D09 100%) !important;
     position: relative;
     color: var(--light-text);
     z-index: 2;
@@ -242,14 +242,16 @@ section {
 }
 
 .timeline-content {
-    background: rgba(42, 33, 24, 0.85);
+    background: rgba(42, 33, 24, 0.9);
     border: 1px solid var(--card-border);
-    border-radius: 8px;
-    padding: 1.5rem;
+    border-radius: 12px;
+    padding: 1.8rem;
     position: relative;
     width: calc(50% - 30px);
     margin-left: auto;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5), 0 0 15px rgba(212, 175, 55, 0.2);
+    backdrop-filter: blur(5px);
 }
 
 .timeline-item:nth-child(even) .timeline-content {
@@ -362,7 +364,6 @@ section {
 
 /* Menschen bei Lamberti Section */
 .menschen-section {
-    background: linear-gradient(135deg, #331A08 0%, #4A2911 35%, #6B3518 65%, #342110 100%) !important;
     position: relative;
     color: var(--text-color);
 }
@@ -384,18 +385,19 @@ section {
 .quiz-container {
     background: rgba(42, 33, 24, 0.85);
     border: 1px solid var(--card-border);
-    border-radius: 8px;
-    padding: 1.5rem;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    border-radius: 12px;
+    padding: 1.8rem;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5), 0 0 15px rgba(212, 175, 55, 0.2);
     margin-bottom: 2rem;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    backdrop-filter: blur(5px);
 }
 
 .founder-card:hover,
 .interview-card:hover,
 .praline-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6), 0 0 20px rgba(212, 175, 55, 0.3);
 }
 
 /* Bild-Container in Cards */
@@ -521,7 +523,6 @@ section {
 
 /* Handwerk & Qualität Section */
 .handwerk-section {
-    background: linear-gradient(135deg, #3A1F0A 0%, #532913 35%, #784930 65%, #402312 100%);
     position: relative;
     color: var(--text-color);
 }
@@ -548,10 +549,11 @@ section {
 .handwerk-text-container {
     background-color: rgba(42, 33, 24, 0.85);
     border: 1px solid var(--card-border);
-    border-radius: 8px;
+    border-radius: 12px;
     padding: 2rem;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5), 0 0 15px rgba(212, 175, 55, 0.2);
     text-shadow: 0px 1px 3px rgba(0, 0, 0, 1);
+    backdrop-filter: blur(5px);
 }
 
 .handwerk-text-container p {
@@ -562,12 +564,13 @@ section {
 .handwerk-gallery .gallery-item {
     display: block;
     overflow: hidden;
-    border-radius: 8px;
+    border-radius: 10px;
     border: 1px solid var(--card-border);
     position: relative;
     transition: all 0.3s ease;
     height: 180px;
     object-fit: cover;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5), 0 0 10px rgba(212, 175, 55, 0.2);
 }
 
 .handwerk-gallery img {
@@ -579,21 +582,23 @@ section {
 
 .handwerk-gallery .gallery-item:hover {
     transform: scale(1.02);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6), 0 0 15px rgba(212, 175, 55, 0.3);
 }
 
 .quality-badge {
     padding: 1rem;
     transition: transform 0.3s ease;
-    background-color: rgba(42, 33, 24, 0.7);
-    border-radius: 8px;
+    background-color: rgba(42, 33, 24, 0.85);
+    border-radius: 10px;
     border: 1px solid var(--card-border);
     height: 100%;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4), 0 0 10px rgba(212, 175, 55, 0.15);
+    backdrop-filter: blur(3px);
 }
 
 .quality-badge:hover {
     transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5), 0 0 15px rgba(212, 175, 55, 0.3);
 }
 
 .quality-badge img {
@@ -617,7 +622,6 @@ section {
 
 /* Interaktion Section */
 .interaktion-section {
-    background: linear-gradient(135deg, #42240C 0%, #5C3416 30%, #8A4D20 70%, #5A3015 100%);
     position: relative;
     color: var(--text-color);
 }
@@ -696,7 +700,6 @@ section {
 
 /* Kontakt Section */
 .kontakt-section {
-    background: linear-gradient(135deg, #4D2A0E 0%, #724018 30%, #A65E29 70%, #69391D 100%);
     position: relative;
     color: var(--text-color);
 }
@@ -782,10 +785,14 @@ section {
 
 /* Footer Section */
 .footer-section {
-    background-color: rgba(30, 25, 20, 0.95);
+    background-color: rgba(30, 25, 20, 0.7);
     color: var(--text-color);
     padding: 3rem 0 1.5rem;
     border-top: 1px solid var(--card-border);
+    box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    position: relative;
+    z-index: 10;
 }
 
 .footer-title {
@@ -1088,6 +1095,7 @@ section {
     position: relative;
     padding: 6rem 0;
     overflow: hidden;
+    z-index: 1;
 }
 
 .parallax-content {
@@ -1096,6 +1104,9 @@ section {
     padding: 4rem 2rem;
     color: #fff;
     text-align: center;
+    background-color: rgba(42, 33, 24, 0.1);
+    border-radius: 12px;
+    backdrop-filter: blur(5px);
 }
 
 /* Verbessere die Lesbarkeit des Texts in den Sektionen */
@@ -1437,11 +1448,85 @@ body {
     padding: 6rem 0;
     color: var(--text-color);
     overflow: hidden;
-    background: linear-gradient(135deg, #48270D 0%, #6A3A1A 35%, #9C5728 70%, #573115 100%);
 }
 
 /* Parallax-Elemente in anderen Sektionen ausblenden */
 .parallax-section:not(.hero-section) .parallax-bg,
 .parallax-section:not(.hero-section) .parallax-overlay {
     display: none;
+}
+
+/* Sektion Trenner */
+.parallax-section:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70%;
+    height: 1px;
+    background: linear-gradient(90deg, 
+        rgba(212, 175, 55, 0) 0%, 
+        rgba(212, 175, 55, 0.5) 50%, 
+        rgba(212, 175, 55, 0) 100%);
+}
+
+/* Verbesserte Quiz-Options */
+.quiz-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.quiz-option {
+    background: rgba(42, 33, 24, 0.8);
+    border: 1px solid var(--accent-color);
+    padding: 10px 20px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(3px);
+}
+
+.quiz-option:hover, .quiz-option.selected {
+    background: rgba(212, 175, 55, 0.2);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5), 0 0 10px rgba(212, 175, 55, 0.4);
+}
+
+/* Button Styles verbessern */
+.btn-accent {
+    background-color: var(--accent-color);
+    color: var(--dark-bg);
+    border-color: var(--accent-color);
+    border-radius: 8px;
+    padding: 8px 16px;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3), 0 0 10px rgba(212, 175, 55, 0.2);
+}
+
+.btn-accent:hover {
+    background-color: transparent;
+    color: var(--accent-color);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4), 0 0 15px rgba(212, 175, 55, 0.3);
+}
+
+.btn-outline-accent {
+    background-color: transparent;
+    color: var(--accent-color);
+    border-color: var(--accent-color);
+    border-radius: 8px;
+    padding: 8px 16px;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+}
+
+.btn-outline-accent:hover {
+    background-color: var(--accent-color);
+    color: var(--dark-bg);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4), 0 0 15px rgba(212, 175, 55, 0.3);
 } 
