@@ -48,6 +48,16 @@ h1, h2, h3, h4, h5, h6 {
     z-index: 0;
 }
 
+.hero-section .parallax-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.15);
+    z-index: 1;
+}
+
 .hero-section h1 {
     color: var(--accent-color);
     font-size: 4.5rem;
@@ -179,11 +189,6 @@ section {
     background: linear-gradient(135deg, #2A1506 0%, #3F1D08 50%, #2A1506 100%);
     position: relative;
     color: var(--light-text);
-    background-image: url('../images/backgrounds/chocolate-liquid.jpg');
-    background-attachment: scroll;
-    background-size: cover;
-    background-position: center;
-    will-change: transform;
     z-index: 2;
 }
 
@@ -345,12 +350,6 @@ section {
     background: linear-gradient(135deg, #331A08 0%, #422411 50%, #331A08 100%);
     position: relative;
     color: var(--text-color);
-    background-image: url('../images/backgrounds/chocolate-production.jpg');
-    background-attachment: scroll;
-    background-size: cover;
-    background-position: center;
-    will-change: transform;
-    z-index: 2;
 }
 
 .team-photo {
@@ -503,12 +502,6 @@ section {
     background: linear-gradient(135deg, #3A1F0A 0%, #4A2912 50%, #3A1F0A 100%);
     position: relative;
     color: var(--text-color);
-    background-image: url('../images/backgrounds/chocolate-factory.jpg');
-    background-attachment: scroll;
-    background-size: cover;
-    background-position: center;
-    will-change: transform;
-    z-index: 2;
 }
 
 .handwerk-subtitle {
@@ -618,12 +611,6 @@ section {
     background: linear-gradient(135deg, #42240C 0%, #553015 50%, #42240C 100%);
     position: relative;
     color: var(--text-color);
-    background-image: url('../images/backgrounds/chocolate-truffle.jpg');
-    background-attachment: scroll;
-    background-size: cover;
-    background-position: center;
-    will-change: transform;
-    z-index: 2;
 }
 
 .quiz-container, .memory-container {
@@ -712,12 +699,6 @@ section {
     background: linear-gradient(135deg, #4D2A0E 0%, #60371F 50%, #4D2A0E 100%);
     position: relative;
     color: var(--text-color);
-    background-image: url('../images/backgrounds/chocolate-praline.jpg');
-    background-attachment: scroll;
-    background-size: cover;
-    background-position: center;
-    will-change: transform;
-    z-index: 2;
 }
 
 .contact-title {
@@ -1438,4 +1419,10 @@ body {
     color: var(--text-color);
     overflow: hidden;
     background: linear-gradient(135deg, #48270D 0%, #5A331A 50%, #48270D 100%);
+}
+
+/* Parallax-Elemente in anderen Sektionen ausblenden */
+.parallax-section:not(.hero-section) .parallax-bg,
+.parallax-section:not(.hero-section) .parallax-overlay {
+    display: none;
 } 
