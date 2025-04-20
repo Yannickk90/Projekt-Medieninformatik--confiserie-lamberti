@@ -26,7 +26,7 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--light-text);
 }
 
-/* Hero Section */
+/* Hero Section mit Hintergrundbild */
 .hero-section {
     position: relative;
     height: 100vh;
@@ -54,7 +54,7 @@ h1, h2, h3, h4, h5, h6 {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.15);
+    background-color: rgba(0, 0, 0, 0.3);
     z-index: 1;
 }
 
@@ -186,7 +186,7 @@ section {
 
 /* Geschichte Timeline */
 .geschichte-section {
-    background: linear-gradient(135deg, #2A1506 0%, #3F1D08 50%, #2A1506 100%);
+    background: linear-gradient(135deg, #2A1506 0%, #3F1D08 50%, #2A1506 100%) !important;
     position: relative;
     color: var(--light-text);
     z-index: 2;
@@ -195,19 +195,20 @@ section {
 .timeline-container {
     position: relative;
     padding: 2rem 0;
+    margin-bottom: 3rem;
 }
 
 .timeline-container::before {
     content: '';
     position: absolute;
-    width: 2px;
+    width: 3px;
     background: var(--accent-color);
     top: 0;
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-    height: var(--timeline-height, 0%);
-    transition: height 0.8s ease;
+    height: 100%;
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
 }
 
 .timeline-item {
@@ -224,16 +225,18 @@ section {
     left: 50%;
     transform: translateX(-50%);
     z-index: 2;
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.7);
 }
 
 .timeline-content {
-    background: var(--card-bg);
+    background: rgba(42, 33, 24, 0.85);
     border: 1px solid var(--card-border);
     border-radius: 8px;
     padding: 1.5rem;
     position: relative;
     width: calc(50% - 30px);
     margin-left: auto;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .timeline-item:nth-child(even) .timeline-content {
@@ -347,7 +350,7 @@ section {
 
 /* Menschen bei Lamberti Section */
 .menschen-section {
-    background: linear-gradient(135deg, #331A08 0%, #422411 50%, #331A08 100%);
+    background: linear-gradient(135deg, #331A08 0%, #422411 50%, #331A08 100%) !important;
     position: relative;
     color: var(--text-color);
 }
@@ -362,19 +365,25 @@ section {
 }
 
 .founder-card,
-.interview-card {
-    background: var(--card-bg);
+.interview-card,
+.praline-card,
+.contact-info,
+.map-container,
+.quiz-container {
+    background: rgba(42, 33, 24, 0.85);
     border: 1px solid var(--card-border);
     border-radius: 8px;
     padding: 1.5rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     margin-bottom: 2rem;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .founder-card:hover,
-.interview-card:hover {
+.interview-card:hover,
+.praline-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
 }
 
 /* Bild-Container in Cards */
@@ -611,15 +620,6 @@ section {
     background: linear-gradient(135deg, #42240C 0%, #553015 50%, #42240C 100%);
     position: relative;
     color: var(--text-color);
-}
-
-.quiz-container, .memory-container {
-    background-color: rgba(42, 33, 24, 0.85);
-    border: 1px solid var(--card-border);
-    border-radius: 10px;
-    padding: 2rem;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    height: 100%;
 }
 
 .quiz-title, .memory-title {
@@ -1093,10 +1093,27 @@ section {
 .parallax-content {
     position: relative;
     z-index: 2;
-    padding: 6rem 2rem;
+    padding: 4rem 2rem;
     color: #fff;
     text-align: center;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Verbessere die Lesbarkeit des Texts in den Sektionen */
+.parallax-section:not(.hero-section) .parallax-content {
+    background-color: transparent;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Stelle sicher, dass die Sektionen ausreichend Platz haben */
+.geschichte-section,
+.menschen-section,
+.handwerk-section,
+.interaktion-section,
+.klassiker-section,
+.kontakt-section {
+    min-height: auto;
+    padding: 5rem 0;
 }
 
 .parallax-content h2 {
