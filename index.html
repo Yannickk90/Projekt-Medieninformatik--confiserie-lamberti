@@ -56,68 +56,38 @@
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="hero-section">
-        <div class="container h-100">
-            <div class="row h-100 align-items-center justify-content-center">
-                <div class="col-12 text-center">
-                    <h1 data-aos="fade-up">Confiserie Lamberti</h1>
-                    <p class="lead" data-aos="fade-up" data-aos-delay="100">Seit 1924 – Handgemachte Verführung aus Wilhelmshaven</p>
-                    <a href="#geschichte" class="btn btn-primary mt-4" data-aos="fade-up" data-aos-delay="200">Entdecken Sie unsere Geschichte</a>
-                </div>
-            </div>
+    <section id="home" class="hero-section parallax-section">
+        <div class="parallax-bg"></div>
+        <div class="parallax-overlay"></div>
+        <div class="container parallax-content">
+            <h1 class="hero-title">Confiserie Lamberti</h1>
+            <p class="hero-subtitle">Seit 1924 - Tradition in Schokoladenkunst</p>
+            <a href="#geschichte" class="btn btn-accent mt-4">Unsere Geschichte entdecken</a>
         </div>
     </section>
 
-    <!-- Geschichte Section mit Timeline -->
-    <section id="geschichte" class="geschichte-section">
-        <div class="container">
-            <div class="row justify-content-center mb-5">
-                <div class="col-lg-8 text-center">
-                    <h2 class="section-title">Unsere Geschichte</h2>
-                    <p class="section-subtitle">Seit 1924 steht die Confiserie Lamberti für handwerkliche Qualität, kreative Süßwaren und familiäre Tradition. In unserer interaktiven Zeitleiste nehmen wir Sie mit auf eine Reise durch bewegte Jahrzehnte – von der Gründung in den Goldenen Zwanzigern über Zeiten des Aufbruchs bis hin zum heutigen Genuss mit Geschichte.</p>
-                </div>
-            </div>
+    <!-- Geschichte Section -->
+    <section id="geschichte" class="geschichte-section parallax-section">
+        <div class="container parallax-content">
+            <h2 class="section-title">Unsere Geschichte</h2>
+            <p class="section-subtitle">Eine Familie, eine Leidenschaft - seit fast 100 Jahren</p>
             
             <div class="timeline-container">
-                <!-- 1924: Gründung -->
-                <div class="timeline-item" data-aos="fade-right" data-aos-duration="1000">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-date">1924</div>
-                    <div class="timeline-content">
-                        <h3>Gründung durch Friedrich Lamberti</h3>
-                        <p>In der kleinen Konditorei in der Marktstraße begann Friedrich Lamberti mit der Herstellung erlesener Pralinen nach traditionellen Rezepten.</p>
-                        <div class="timeline-image">
-                            <img src="images/timeline/1924-gruendung.jpg" alt="Historisches Foto der Gründung" class="img-fluid rounded">
-                        </div>
-                        <div class="timeline-document mt-3">
-                            <a href="#" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#document1924">Erste Speisekarte ansehen</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- 1932: Erste Pralinenkollektion -->
-                <div class="timeline-item" data-aos="fade-right" data-aos-duration="1000">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-date">1932</div>
-                    <div class="timeline-content">
-                        <h3>Erste Pralinenkollektion mit regionalen Zutaten</h3>
-                        <p>Inmitten wirtschaftlich schwieriger Zeiten wagt die Konditorei Lamberti ein neues Kapitel: Die erste eigene Pralinenlinie wird vorgestellt – hergestellt mit Sahne von regionalen Bauernhöfen und Früchten aus dem Umland. Ein Meilenstein für das heutige Premiumsortiment.</p>
-                        <div class="timeline-image">
-                            <img src="images/timeline/1932-pralinensortiment.jpg" alt="Historisches Foto der ersten Pralinenkollektion" class="img-fluid rounded">
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- 1950er: Wiederaufbau -->
+                <!-- Timeline Items werden dynamisch erstellt -->
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
-                    <div class="timeline-date">1950</div>
                     <div class="timeline-content">
-                        <h3>Wiederaufbau nach dem Krieg</h3>
-                        <p>Nach den schweren Kriegsjahren gelang der Familie Lamberti ein beeindruckender Wiederaufbau. Neue Rezepturen wurden entwickelt, darunter die berühmten Marzipan-Spezialitäten.</p>
-                        <div class="timeline-image">
-                            <img src="images/timeline/1950-wiederaufbau.jpg" alt="Foto vom Wiederaufbau" class="img-fluid rounded">
-                        </div>
+                        <h3>1924: Die Gründung</h3>
+                        <p>Friedrich Lamberti gründet in einer kleinen Werkstatt die Confiserie Lamberti und beginnt mit der Herstellung von handgefertigten Pralinen nach traditionellen italienischen Rezepten.</p>
+                        <a href="#document1924" data-bs-toggle="modal" class="btn btn-sm btn-outline-accent mt-2">Originaldokument ansehen</a>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>1950: Neubeginn nach dem Krieg</h3>
+                        <p>Friedrich Lamberti Jr. übernimmt das Geschäft nach den schweren Kriegsjahren und führt neue Pralinenkreationen ein, die bald zum Aushängeschild des Unternehmens werden.</p>
                         <div class="timeline-audio mt-3">
                             <!-- Temporarily disabled until media files are available
                             <audio controls>
@@ -130,58 +100,20 @@
                     </div>
                 </div>
                 
-                <!-- 1965: Sonntagskiste -->
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
-                    <div class="timeline-date">1965</div>
                     <div class="timeline-content">
-                        <h3>Einführung der beliebten Sonntagskiste</h3>
-                        <p>Unter dem Motto "Sonntag ist Kuchentag" wird ein Lieferservice für frisch gebackene Sonntagskuchen eingeführt. Die "Sonntagskiste" erfreut sich schnell großer Beliebtheit – besonders bei älteren Menschen und Familien, die sich ein Stück Lamberti-Konditorkunst nach Hause holen.</p>
-                        <div class="timeline-image">
-                            <img src="images/timeline/1965-sonntagskiste.jpg" alt="Historisches Foto der Sonntagskiste" class="img-fluid rounded">
-                        </div>
+                        <h3>1975: Expansion</h3>
+                        <p>Mit der Eröffnung von zwei weiteren Filialen in Nachbarstädten beginnt die regionale Expansion. Die Confiserie Lamberti wird zum Synonym für Qualitäts-Schokoladenkunst in der Region.</p>
                     </div>
                 </div>
                 
-                <!-- 1978: Übergabe -->
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
-                    <div class="timeline-date">1978</div>
                     <div class="timeline-content">
-                        <h3>Übergabe an Tochter Margarethe</h3>
-                        <p>Mit frischem Wind und innovativen Ideen übernahm Margarethe Lamberti das Familienunternehmen und brachte es in eine neue Ära der Modernisierung.</p>
-                        <div class="timeline-image">
-                            <img src="images/timeline/1978-uebergabe.jpg" alt="Übergabe an Margarethe Lamberti" class="img-fluid rounded">
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- 1999: Café Eröffnung -->
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-date">1999</div>
-                    <div class="timeline-content">
-                        <h3>Eröffnung des Café Lamberti</h3>
-                        <p>Die Erweiterung des Familienunternehmens um das stilvolle Café Lamberti war ein Meilenstein. Hier konnten die Köstlichkeiten nun direkt vor Ort genossen werden.</p>
-                        <div class="timeline-image">
-                            <img src="images/timeline/1999-cafe.jpg" alt="Eröffnung des Café Lamberti" class="img-fluid rounded">
-                        </div>
-                        <div class="timeline-document mt-3">
-                            <a href="#" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#document1999">Eröffnungseinladung ansehen</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- 2024: Jubiläum -->
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-date">2024</div>
-                    <div class="timeline-content">
-                        <h3>100-jähriges Jubiläum</h3>
-                        <p>Mit Stolz feiern wir unser hundertjähriges Bestehen mit einer exklusiven Sonderedition unserer Pralinen und besonderen Veranstaltungen für unsere treuen Kunden.</p>
-                        <div class="timeline-image">
-                            <img src="images/timeline/2024-jubilaeum.jpg" alt="100-jähriges Jubiläum" class="img-fluid rounded">
-                        </div>
+                        <h3>1999: Eröffnung des Café Lamberti</h3>
+                        <p>Thomas Lamberti, Enkel des Gründers, erweitert das Geschäftsmodell und eröffnet das erste Café Lamberti, das neben Pralinen auch Kaffee-Spezialitäten und Desserts anbietet.</p>
+                        <a href="#document1999" data-bs-toggle="modal" class="btn btn-sm btn-outline-accent mt-2">Einladungskarte ansehen</a>
                         <div class="timeline-video mt-3">
                             <!-- Temporarily disabled until media files are available
                             <video controls class="img-fluid">
@@ -193,106 +125,63 @@
                         </div>
                     </div>
                 </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>2020: Online-Shop & Modernisierung</h3>
+                        <p>Als Antwort auf die digitale Transformation und die Herausforderungen der Pandemie launcht die Confiserie Lamberti ihren Online-Shop und versendet ihre Spezialitäten nun deutschlandweit.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Parallax History Section -->
-    <section class="parallax-section">
-        <div class="parallax-bg parallax-history"></div>
-        <div class="parallax-overlay"></div>
-        <div class="parallax-content">
-            <h2>Tradition seit 1924</h2>
-            <p>Unsere Konditorei blickt auf eine fast hundertjährige Geschichte zurück. Was als kleine Konditorei begann, ist heute ein Ort voller Genuss und geschmackvoller Erinnerungen.</p>
-            <a href="#menschen" class="parallax-btn">Lernen Sie uns kennen</a>
-        </div>
-    </section>
-
-    <!-- Menschen bei Lamberti Section -->
-    <section id="menschen" class="menschen-section">
-        <div class="container">
-            <div class="row justify-content-center mb-5">
-                <div class="col-lg-8 text-center">
-                    <h2 class="section-title">Menschen bei Lamberti</h2>
-                    <p class="section-subtitle">Die Gesichter hinter unseren süßen Kreationen</p>
-                </div>
-            </div>
-
-            <div class="row mb-5">
-                <div class="col-lg-12">
-                    <div class="team-photo">
-                        <img src="images/team/team-gesamt.jpg" alt="Team Lamberti" class="img-fluid rounded shadow">
-                        <p class="team-caption text-center mt-3">Das Team der Confiserie Lamberti, 2023</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row mb-5">
-                <div class="col-lg-6">
-                    <div class="card founder-card" data-aos="fade-right" data-aos-duration="1000">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-5">
-                                    <div class="founder-img-container">
-                                        <img src="images/team/friedrich-lamberti.jpg" alt="Friedrich Lamberti" class="img-fluid rounded founder-img">
-                                    </div>
-                                </div>
-                                <div class="col-md-7">
-                                    <div class="founder-text-container">
-                                        <h3 class="founder-name">Friedrich Lamberti</h3>
-                                        <p class="founder-title">Gründer (1896-1972)</p>
-                                        <p class="founder-text">Als junger Konditormeister eröffnete Friedrich Lamberti 1924 seine eigene Konditorei in Wilhelmshaven. Seine Vision: die feinsten Pralinen an der Nordseeküste herzustellen. Seine Leidenschaft für qualitativ hochwertige Zutaten und traditionelle Handwerkskunst legt bis heute den Grundstein für alle Kreationen der Confiserie.</p>
-                                    </div>
-                                </div>
-                            </div>
+    <!-- Menschen hinter Lamberti Section -->
+    <section id="menschen" class="menschen-section parallax-section">
+        <div class="container parallax-content">
+            <h2 class="section-title">Die Menschen hinter Lamberti</h2>
+            <p class="section-subtitle">Leidenschaft und Tradition über Generationen</p>
+            
+            <div class="row founders-row mt-5">
+                <div class="col-md-6 mb-4">
+                    <div class="founder-card">
+                        <div class="founder-img-container">
+                            <img src="images/team/friedrich-lamberti.jpg" alt="Friedrich Lamberti" class="founder-img">
                         </div>
+                        <h3>Friedrich Lamberti</h3>
+                        <p class="founder-title">Gründer (1898-1970)</p>
+                        <p class="founder-quote">"Qualität entsteht, wenn man seiner Leidenschaft folgt und nicht den Trends."</p>
+                        <p class="founder-bio">Friedrich brachte seine Leidenschaft für Schokoladenhandwerk aus Italien mit nach Deutschland und gründete 1924 die Confiserie Lamberti. Sein unerschütterliches Streben nach Perfektion und seine innovativen Rezepturen legten den Grundstein für den Erfolg des Unternehmens.</p>
                     </div>
                 </div>
-                <div class="col-lg-6">
-                    <div class="card founder-card" data-aos="fade-left" data-aos-duration="1000">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-5">
-                                    <div class="founder-img-container">
-                                        <img src="images/team/thomas-lamberti.jpg" alt="Thomas Lamberti" class="img-fluid rounded founder-img">
-                                    </div>
-                                </div>
-                                <div class="col-md-7">
-                                    <div class="founder-text-container">
-                                        <h3 class="founder-name">Thomas Lamberti</h3>
-                                        <p class="founder-title">Aktueller Inhaber</p>
-                                        <p class="founder-text">Als Vertreter der dritten Generation führt Thomas Lamberti das Familienunternehmen mit einer Mischung aus Tradition und Innovation. Nach seiner Ausbildung in der Schweiz brachte er neue Impulse mit, während er die bewährten Familienrezepte bewahrt. Unter seiner Leitung wurde die Confiserie zu einer bekannten Marke über die Stadtgrenzen hinaus.</p>
-                                    </div>
-                                </div>
-                            </div>
+                
+                <div class="col-md-6 mb-4">
+                    <div class="founder-card">
+                        <div class="founder-img-container">
+                            <img src="images/team/thomas-lamberti.jpg" alt="Thomas Lamberti" class="founder-img">
                         </div>
+                        <h3>Thomas Lamberti</h3>
+                        <p class="founder-title">Aktueller Inhaber</p>
+                        <p class="founder-quote">"Tradition bewahren bedeutet, das Feuer weiterzugeben, nicht die Asche aufzubewahren."</p>
+                        <p class="founder-bio">Als Enkel des Gründers führt Thomas die Familientradition mit einer Mischung aus Respekt für das Erbe und Offenheit für Innovation fort. Unter seiner Führung hat sich die Confiserie Lamberti zu einem modernen Unternehmen entwickelt, das traditionelles Handwerk mit zeitgemäßen Geschäftsmodellen verbindet.</p>
                     </div>
                 </div>
             </div>
-
-            <div class="row mt-5">
-                <div class="col-12 text-center mb-4">
-                    <h3 class="interview-title">3 Fragen an langjährige Mitarbeiter</h3>
-                </div>
-            </div>
-
-            <div class="row interview-section">
-                <div class="col-md-4">
-                    <div class="interview-card" data-aos="fade-right" data-aos-duration="1000">
+            
+            <h3 class="team-section-title mt-5">Unser Team - Die Seele von Lamberti</h3>
+            
+            <div class="row team-row mt-4">
+                <div class="col-md-4 mb-4">
+                    <div class="interview-card">
                         <div class="interview-img-container">
-                            <img src="images/team/mitarbeiter-1.jpg" alt="Helga Weber" class="img-fluid rounded-circle">
+                            <img src="images/team/helga-meyer.jpg" alt="Helga Meyer" class="interview-img">
                         </div>
-                        <div class="interview-text-container">
-                            <h4 class="interview-name">Helga Weber</h4>
-                            <p class="interview-position">Konditormeisterin seit 1987</p>
-                            <div class="interview-content">
-                                <p><strong>Was ist Ihr Lieblingsprodukt?</strong><br>
-                                "Die Himbeerpralinen mit weißer Schokolade. Ich verfeinere sie seit 30 Jahren und optimiere sie immer wieder."</p>
-                                <p><strong>Was hat sich in Ihrer Zeit bei Lamberti verändert?</strong><br>
-                                "Vieles wurde moderner, aber die Qualität und das Handwerk sind geblieben. Das schätze ich sehr."</p>
-                                <p><strong>Was macht Lamberti besonders?</strong><br>
-                                "Der Familienzusammenhalt und dass alle Mitarbeiter wie eine große Familie sind. Das spüren auch die Kunden."</p>
-                            </div>
+                        <h3>Helga Meyer</h3>
+                        <p class="interview-title">Konditormeisterin (seit 1992)</p>
+                        <div class="interview-content">
+                            <p class="interview-quote">"Jede Praline ist ein kleines Kunstwerk, das Hingabe verdient."</p>
+                            <p class="interview-text"><strong>Lieblingsprodukt:</strong> Die Himbeer-Champagner-Trüffel, wegen der besonderen Balance von Süße und Säure.</p>
                             <div class="interview-audio mt-3">
                                 <!-- Temporarily disabled until media files are available
                                 <audio controls class="w-100">
@@ -304,22 +193,17 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="interview-card" data-aos="fade-up" data-aos-duration="1000">
+                
+                <div class="col-md-4 mb-4">
+                    <div class="interview-card">
                         <div class="interview-img-container">
-                            <img src="images/team/mitarbeiter-2.jpg" alt="Klaus Schmidt" class="img-fluid rounded-circle">
+                            <img src="images/team/klaus-wagner.jpg" alt="Klaus Wagner" class="interview-img">
                         </div>
-                        <div class="interview-text-container">
-                            <h4 class="interview-name">Klaus Schmidt</h4>
-                            <p class="interview-position">Verkaufsleiter seit 1995</p>
-                            <div class="interview-content">
-                                <p><strong>Was ist Ihr Lieblingsprodukt?</strong><br>
-                                "Unser Marzipanosterei. Die Handarbeit, die in jedem Stück steckt, ist einfach beeindruckend."</p>
-                                <p><strong>Was hat sich in Ihrer Zeit bei Lamberti verändert?</strong><br>
-                                "Wir haben uns digitalisiert, aber die persönliche Beratung steht immer noch im Mittelpunkt."</p>
-                                <p><strong>Was macht Lamberti besonders?</strong><br>
-                                "Die treuen Kunden, die teilweise schon in der dritten Generation zu uns kommen. Das ist ein toller Vertrauensbeweis."</p>
-                            </div>
+                        <h3>Klaus Wagner</h3>
+                        <p class="interview-title">Chocolatier (seit 2005)</p>
+                        <div class="interview-content">
+                            <p class="interview-quote">"Die Temperatur ist das A und O. Ein halbes Grad kann den Unterschied ausmachen."</p>
+                            <p class="interview-text"><strong>Lieblingsprodukt:</strong> Die Whisky-Sahne-Ganache, weil sie technisch anspruchsvoll ist und meinen Hang zu Spirituosen widerspiegelt.</p>
                             <div class="interview-audio mt-3">
                                 <!-- Temporarily disabled until media files are available
                                 <audio controls class="w-100">
@@ -331,22 +215,17 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="interview-card" data-aos="fade-left" data-aos-duration="1000">
+                
+                <div class="col-md-4 mb-4">
+                    <div class="interview-card">
                         <div class="interview-img-container">
-                            <img src="images/team/mitarbeiter-3.jpg" alt="Maria Krüger" class="img-fluid rounded-circle">
+                            <img src="images/team/maria-schulz.jpg" alt="Maria Schulz" class="interview-img">
                         </div>
-                        <div class="interview-text-container">
-                            <h4 class="interview-name">Maria Krüger</h4>
-                            <p class="interview-position">Café-Leitung seit 2001</p>
-                            <div class="interview-content">
-                                <p><strong>Was ist Ihr Lieblingsprodukt?</strong><br>
-                                "Die Schwarzwälder Kirschtorte nach Omas Rezept. Sie transportiert ein Stück Geschichte."</p>
-                                <p><strong>Was hat sich in Ihrer Zeit bei Lamberti verändert?</strong><br>
-                                "Wir bieten jetzt mehr internationale Spezialitäten an, aber immer mit unserer lokalen Note."</p>
-                                <p><strong>Was macht Lamberti besonders?</strong><br>
-                                "Die Atmosphäre im Café. Viele Gäste kommen nicht nur wegen der Süßigkeiten, sondern auch, um Teil unserer kleinen Gemeinschaft zu sein."</p>
-                            </div>
+                        <h3>Maria Schulz</h3>
+                        <p class="interview-title">Verkaufsleiterin (seit 2010)</p>
+                        <div class="interview-content">
+                            <p class="interview-quote">"Unsere Kunden kommen für die Pralinen, aber sie bleiben wegen der Geschichten dahinter."</p>
+                            <p class="interview-text"><strong>Lieblingsprodukt:</strong> Die Saisonalen Spezialitäten, besonders die winterlichen Gewürz-Pralinen mit Zimt und Kardamom.</p>
                             <div class="interview-audio mt-3">
                                 <!-- Temporarily disabled until media files are available
                                 <audio controls class="w-100">
@@ -362,34 +241,18 @@
         </div>
     </section>
 
-    <!-- Parallax Craftsmanship Section -->
-    <section class="parallax-section">
-        <div class="parallax-bg parallax-craftsmanship"></div>
-        <div class="parallax-overlay"></div>
-        <div class="parallax-content">
-            <h2>Handwerkskunst</h2>
-            <p>Jede unserer Pralinen ist ein kleines Kunstwerk. Mit Liebe zum Detail und den feinsten Zutaten erschaffen wir Genussmomente, die in Erinnerung bleiben.</p>
-            <a href="#handwerk" class="parallax-btn">Mehr erfahren</a>
-        </div>
-    </section>
-
     <!-- Handwerk & Qualität Section -->
-    <section id="handwerk" class="handwerk-section">
-        <div class="container">
-            <div class="row justify-content-center mb-5">
-                <div class="col-lg-8 text-center">
+    <section id="handwerk" class="handwerk-section parallax-section">
+        <div class="container parallax-content">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
                     <h2 class="section-title">Handwerk & Qualität</h2>
-                    <p class="section-subtitle">Traditions-Handwerk trifft auf höchste Ansprüche</p>
-                </div>
-            </div>
-
-            <div class="row mb-5">
-                <div class="col-lg-6 mb-4">
-                    <div class="handwerk-text-container">
-                        <h3 class="handwerk-subtitle">Unsere Philosophie</h3>
-                        <p>Bei Confiserie Lamberti steht das Handwerk im Mittelpunkt. Seit 1924 stellen wir alle unsere Pralinen und Backwaren mit traditionellen Methoden und viel Liebe zum Detail her. Wir glauben, dass man den Unterschied schmecken kann.</p>
-                        <p>Unsere Zutaten beziehen wir, wo immer möglich, von lokalen Produzenten. Für exotische Zutaten wie Kakao setzen wir auf langfristige, faire Handelsbeziehungen mit ausgewählten Partnern.</p>
-                        <h3 class="handwerk-subtitle mt-4">Nachhaltigkeit</h3>
+                    <p class="section-subtitle">Die Kunst der Pralinenfertigung</p>
+                    
+                    <div class="handwerk-text-container mt-5">
+                        <h3 class="sub-heading">Die Philosophie der Confiserie Lamberti</h3>
+                        <p>Bei Lamberti verstehen wir die Herstellung von Pralinen als Kunstform, die Präzision, Geduld und ein tiefes Verständnis für die Eigenschaften von Schokolade erfordert. Jede Praline durchläuft einen sorgfältigen Herstellungsprozess, der mit der Auswahl der feinsten Zutaten beginnt.</p>
+                        <p>Unsere Rezepturen wurden über Generationen weitergegeben und verfeinert. Gleichzeitig sind wir offen für neue Inspirationen und kreieren regelmäßig innovative Geschmackskombinationen, die unsere Tradition bereichern.</p>
                         <p>Qualität bedeutet für uns auch Verantwortung: Wir verzichten komplett auf künstliche Zusatzstoffe und achten auf umweltfreundliche Verpackungen. So können Sie unsere Süßigkeiten mit gutem Gewissen genießen.</p>
                         <div class="handwerk-video mt-4">
                             <!-- Temporarily disabled until media files are available
@@ -402,210 +265,62 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6">
-                    <div class="handwerk-gallery">
-                        <div class="row g-3">
-                            <div class="col-6">
-                                <a href="#" class="gallery-item" data-bs-toggle="modal" data-bs-target="#galleryModal1">
-                                    <img src="images/handwerk/praline-1.jpg" alt="Praline Herstellung" class="img-fluid rounded shadow">
-                                </a>
-                            </div>
-                            <div class="col-6">
-                                <a href="#" class="gallery-item" data-bs-toggle="modal" data-bs-target="#galleryModal2">
-                                    <img src="images/handwerk/praline-2.jpg" alt="Handgemachte Pralinen" class="img-fluid rounded shadow">
-                                </a>
-                            </div>
-                            <div class="col-6">
-                                <a href="#" class="gallery-item" data-bs-toggle="modal" data-bs-target="#galleryModal3">
-                                    <img src="images/handwerk/werkstatt-1.jpg" alt="Werkstatt" class="img-fluid rounded shadow">
-                                </a>
-                            </div>
-                            <div class="col-6">
-                                <a href="#" class="gallery-item" data-bs-toggle="modal" data-bs-target="#galleryModal4">
-                                    <img src="images/handwerk/werkstatt-2.jpg" alt="Produktionsprozess" class="img-fluid rounded shadow">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="quality-badges mt-4">
-                        <div class="row text-center">
-                            <div class="col-4">
-                                <div class="quality-badge">
-                                    <img src="images/icons/handmade-icon.svg" alt="Handgemacht" class="img-fluid mb-2">
-                                    <h5>100% Handarbeit</h5>
-                                </div>
-                            </div>
-                            <div class="col-4">
-                                <div class="quality-badge">
-                                    <img src="images/icons/regional-icon.svg" alt="Regional" class="img-fluid mb-2">
-                                    <h5>Regionale Zutaten</h5>
-                                </div>
-                            </div>
-                            <div class="col-4">
-                                <div class="quality-badge">
-                                    <img src="images/icons/tradition-icon.svg" alt="Tradition" class="img-fluid mb-2">
-                                    <h5>100 Jahre Tradition</h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
 
     <!-- Interaktion Section -->
-    <section id="interaktion" class="interaktion-section">
-        <div class="container">
-            <div class="row justify-content-center mb-5">
-                <div class="col-lg-8 text-center">
-                    <h2 class="section-title">Interaktion</h2>
-                    <p class="section-subtitle">Testen Sie Ihr Wissen und teilen Sie Ihre Erinnerungen</p>
-                </div>
-            </div>
+    <section id="interaktion" class="interaktion-section parallax-section">
+        <div class="container parallax-content">
+            <h2 class="section-title">Interaktion</h2>
+            <p class="section-subtitle">Testen Sie Ihr Wissen über Confiserie Lamberti</p>
             
-            <div class="row">
-                <div class="col-lg-6 mb-5">
+            <div class="row justify-content-center mt-5">
+                <div class="col-lg-8">
                     <div class="quiz-container">
-                        <h3 class="quiz-title">Quiz: Wie gut kennen Sie Lamberti?</h3>
+                        <h3 class="quiz-title">Lamberti-Quiz</h3>
                         <div id="quiz">
-                            <div class="quiz-question" id="question1">
+                            <div class="quiz-question" id="question-1">
                                 <h4>Frage 1: In welchem Jahr wurde die Confiserie Lamberti gegründet?</h4>
-                                <div class="form-check mt-3">
-                                    <input class="form-check-input" type="radio" name="q1" id="q1a" value="a">
-                                    <label class="form-check-label" for="q1a">1914</label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="q1" id="q1b" value="b">
-                                    <label class="form-check-label" for="q1b">1924</label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="q1" id="q1c" value="c">
-                                    <label class="form-check-label" for="q1c">1934</label>
+                                <div class="quiz-options">
+                                    <button class="btn btn-outline-accent quiz-option" data-value="1920">1920</button>
+                                    <button class="btn btn-outline-accent quiz-option" data-value="1924">1924</button>
+                                    <button class="btn btn-outline-accent quiz-option" data-value="1930">1930</button>
+                                    <button class="btn btn-outline-accent quiz-option" data-value="1935">1935</button>
                                 </div>
                             </div>
                             
-                            <div class="quiz-question" id="question2" style="display: none;">
-                                <h4>Frage 2: Wer gründete die Confiserie Lamberti?</h4>
-                                <div class="form-check mt-3">
-                                    <input class="form-check-input" type="radio" name="q2" id="q2a" value="a">
-                                    <label class="form-check-label" for="q2a">Gustav Lamberti</label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="q2" id="q2b" value="b">
-                                    <label class="form-check-label" for="q2b">Friedrich Lamberti</label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="q2" id="q2c" value="c">
-                                    <label class="form-check-label" for="q2c">Thomas Lamberti</label>
+                            <div class="quiz-question" id="question-2" style="display: none;">
+                                <h4>Frage 2: Welche Praline gilt als Signature-Kreation der Confiserie?</h4>
+                                <div class="quiz-options">
+                                    <button class="btn btn-outline-accent quiz-option" data-value="Himbeer-Trüffel">Himbeer-Trüffel</button>
+                                    <button class="btn btn-outline-accent quiz-option" data-value="Whisky-Sahne-Ganache">Whisky-Sahne-Ganache</button>
+                                    <button class="btn btn-outline-accent quiz-option" data-value="Marzipan-Kugeln">Marzipan-Kugeln</button>
+                                    <button class="btn btn-outline-accent quiz-option" data-value="Nougat-Würfel">Nougat-Würfel</button>
                                 </div>
                             </div>
                             
-                            <div class="quiz-question" id="question3" style="display: none;">
-                                <h4>Frage 3: In welchem Jahr wurde das Café Lamberti eröffnet?</h4>
-                                <div class="form-check mt-3">
-                                    <input class="form-check-input" type="radio" name="q3" id="q3a" value="a">
-                                    <label class="form-check-label" for="q3a">1989</label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="q3" id="q3b" value="b">
-                                    <label class="form-check-label" for="q3b">1999</label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="q3" id="q3c" value="c">
-                                    <label class="form-check-label" for="q3c">2009</label>
+                            <div class="quiz-question" id="question-3" style="display: none;">
+                                <h4>Frage 3: Wer führt aktuell die Confiserie Lamberti?</h4>
+                                <div class="quiz-options">
+                                    <button class="btn btn-outline-accent quiz-option" data-value="Friedrich Lamberti">Friedrich Lamberti</button>
+                                    <button class="btn btn-outline-accent quiz-option" data-value="Thomas Lamberti">Thomas Lamberti</button>
+                                    <button class="btn btn-outline-accent quiz-option" data-value="Klaus Wagner">Klaus Wagner</button>
+                                    <button class="btn btn-outline-accent quiz-option" data-value="Maria Schulz">Maria Schulz</button>
                                 </div>
                             </div>
                             
-                            <div class="quiz-question" id="question4" style="display: none;">
-                                <h4>Frage 4: Wer übernahm die Confiserie im Jahr 1978?</h4>
-                                <div class="form-check mt-3">
-                                    <input class="form-check-input" type="radio" name="q4" id="q4a" value="a">
-                                    <label class="form-check-label" for="q4a">Thomas Lamberti</label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="q4" id="q4b" value="b">
-                                    <label class="form-check-label" for="q4b">Margarethe Lamberti</label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="q4" id="q4c" value="c">
-                                    <label class="form-check-label" for="q4c">Friedrich Lamberti Jr.</label>
-                                </div>
-                            </div>
-                            
-                            <div class="quiz-question" id="question5" style="display: none;">
-                                <h4>Frage 5: Welches Jubiläum feiert Lamberti im Jahr 2024?</h4>
-                                <div class="form-check mt-3">
-                                    <input class="form-check-input" type="radio" name="q5" id="q5a" value="a">
-                                    <label class="form-check-label" for="q5a">75 Jahre</label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="q5" id="q5b" value="b">
-                                    <label class="form-check-label" for="q5b">90 Jahre</label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="q5" id="q5c" value="c">
-                                    <label class="form-check-label" for="q5c">100 Jahre</label>
-                                </div>
-                            </div>
-                            
-                            <div id="quiz-results" style="display: none;">
-                                <h4>Ihr Ergebnis:</h4>
-                                <p id="results-text"></p>
-                                <div id="correct-answers" class="mt-3"></div>
-                                <button id="restart-quiz" class="btn btn-primary mt-3">Quiz neu starten</button>
+                            <div id="quiz-result" style="display: none;">
+                                <h3>Ihr Ergebnis</h3>
+                                <p id="result-text"></p>
+                                <button id="restart-quiz" class="btn btn-accent mt-3">Quiz neu starten</button>
                             </div>
                             
                             <div class="quiz-navigation mt-4">
-                                <button id="prev-question" class="btn btn-outline-primary" style="display: none;">Zurück</button>
-                                <button id="next-question" class="btn btn-primary">Weiter</button>
-                                <button id="submit-quiz" class="btn btn-success" style="display: none;">Ergebnis anzeigen</button>
+                                <button id="prev-question" class="btn btn-outline-accent" style="display: none;">Zurück</button>
+                                <button id="next-question" class="btn btn-accent">Weiter</button>
+                                <button id="finish-quiz" class="btn btn-accent" style="display: none;">Abschließen</button>
                             </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-lg-6">
-                    <div class="memory-container">
-                        <h3 class="memory-title">Ihre Erinnerung an Lamberti</h3>
-                        <p>Haben Sie eine besondere Erinnerung an die Confiserie Lamberti? Teilen Sie sie mit uns!</p>
-                        
-                        <form id="memory-form" class="mt-4">
-                            <div class="mb-3">
-                                <label for="memory-name" class="form-label">Ihr Name</label>
-                                <input type="text" class="form-control" id="memory-name" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="memory-year" class="form-label">Jahr der Erinnerung</label>
-                                <select class="form-select" id="memory-year" required>
-                                    <option value="" selected disabled>Bitte wählen</option>
-                                    <option value="2020er">2020er Jahre</option>
-                                    <option value="2010er">2010er Jahre</option>
-                                    <option value="2000er">2000er Jahre</option>
-                                    <option value="1990er">1990er Jahre</option>
-                                    <option value="1980er">1980er Jahre</option>
-                                    <option value="1970er">1970er Jahre oder früher</option>
-                                </select>
-                            </div>
-                            <div class="mb-3">
-                                <label for="memory-text" class="form-label">Ihre Erinnerung</label>
-                                <textarea class="form-control" id="memory-text" rows="5" required></textarea>
-                            </div>
-                            <div class="mb-3">
-                                <label for="memory-image" class="form-label">Bild hochladen (optional)</label>
-                                <input class="form-control" type="file" id="memory-image" accept="image/*">
-                            </div>
-                            <button type="submit" class="btn btn-primary">Erinnerung speichern</button>
-                        </form>
-                        
-                        <div id="memory-saved" class="alert alert-success mt-3" style="display: none;">
-                            Vielen Dank für Ihre Erinnerung! Sie wurde lokal gespeichert.
-                        </div>
-                        
-                        <div id="memory-display" class="mt-5" style="display: none;">
-                            <h4>Gespeicherte Erinnerungen:</h4>
-                            <div id="memory-list"></div>
                         </div>
                     </div>
                 </div>
@@ -615,8 +330,6 @@
 
     <!-- Klassiker Section -->
     <section id="klassiker" class="klassiker-section parallax-section">
-        <div class="parallax-bg" style="background-image: url('images/backgrounds/chocolate-truffle.jpg');"></div>
-        <div class="parallax-overlay"></div>
         <div class="container parallax-content">
             <h2 class="section-title" data-aos="fade-up">Unsere Klassiker</h2>
             <p class="section-subtitle" data-aos="fade-up" data-aos-delay="200">Entdecken Sie unsere zeitlosen Pralinen-Kreationen, die seit Generationen beliebt sind</p>
@@ -687,7 +400,7 @@
 
     <!-- Kontakt Section -->
     <section id="kontakt" class="kontakt-section parallax-section">
-        <div class="container">
+        <div class="container parallax-content">
             <div class="row justify-content-center mb-5">
                 <div class="col-lg-8 text-center">
                     <h2 class="section-title">Kontakt</h2>
@@ -696,196 +409,76 @@
             </div>
             
             <div class="row">
-                <div class="col-lg-6 mb-4">
+                <div class="col-md-6 mb-4">
                     <div class="contact-info">
-                        <h3 class="contact-title">Besuchen Sie uns</h3>
-                        <p class="address">
-                            <strong>Confiserie Lamberti</strong><br>
-                            Marktstraße 45<br>
-                            26382 Wilhelmshaven<br><br>
-                            <i class="bi bi-telephone"></i> 04421 / 12 34 56<br>
-                            <i class="bi bi-envelope"></i> info@confiserie-lamberti.de
-                        </p>
+                        <h3><i class="bi bi-geo-alt-fill"></i> Besuchen Sie uns</h3>
+                        <p>Confiserie Lamberti<br>
+                        Schokoladenweg 12<br>
+                        12345 Naschstadt</p>
                         
-                        <div class="opening-hours mt-4">
-                            <h4>Öffnungszeiten:</h4>
-                            <table class="table table-sm">
-                                <tbody>
-                                    <tr>
-                                        <td>Montag - Freitag:</td>
-                                        <td>09:00 - 18:00 Uhr</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Samstag:</td>
-                                        <td>09:00 - 16:00 Uhr</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Sonntag:</td>
-                                        <td>geschlossen</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
+                        <h3 class="mt-4"><i class="bi bi-clock-fill"></i> Öffnungszeiten</h3>
+                        <p>Montag - Freitag: 9:00 - 18:00 Uhr<br>
+                        Samstag: 9:00 - 16:00 Uhr<br>
+                        Sonntag: Geschlossen</p>
                         
-                        <div class="social-media mt-4">
-                            <h4>Folgen Sie uns:</h4>
-                            <div class="social-icons">
-                                <a href="#" class="social-icon" aria-label="Facebook">
-                                    <i class="bi bi-facebook"></i>
-                                </a>
-                                <a href="#" class="social-icon" aria-label="Instagram">
-                                    <i class="bi bi-instagram"></i>
-                                </a>
-                                <a href="#" class="social-icon" aria-label="Twitter">
-                                    <i class="bi bi-twitter"></i>
-                                </a>
-                            </div>
+                        <h3 class="mt-4"><i class="bi bi-telephone-fill"></i> Kontaktieren Sie uns</h3>
+                        <p>Telefon: +49 (0) 123 45678910<br>
+                        E-Mail: info@confiserie-lamberti.de</p>
+                        
+                        <div class="social-icons mt-4">
+                            <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
+                            <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
+                            <a href="#" class="social-icon"><i class="bi bi-twitter"></i></a>
                         </div>
                     </div>
                 </div>
                 
-                <div class="col-lg-6">
+                <div class="col-md-6 mb-4">
                     <div class="map-container">
-                        <h3 class="contact-title">Wegbeschreibung</h3>
+                        <h3><i class="bi bi-map-fill"></i> Anfahrt</h3>
                         <div class="map">
-                            <!-- OpenStreetMap iframe -->
-                            <iframe width="100%" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
-                                src="https://www.openstreetmap.org/export/embed.html?bbox=8.114318847656252%2C53.50111704294316%2C8.203411102294923%2C53.54030739150021&amp;layer=mapnik&amp;marker=53.52071829916915%2C8.158864974975586" 
-                                style="border: 1px solid #ccc;">
-                            </iframe>
-                            <p class="text-center mt-2">
-                                <small>
-                                    <a href="https://www.openstreetmap.org/?mlat=53.5207&amp;mlon=8.1589#map=14/53.5207/8.1589" target="_blank">
-                                        Größere Karte anzeigen
-                                    </a>
-                                </small>
-                            </p>
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2428.430264660143!2d13.404930776938642!3d52.520007043722056!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a84e373f035901%3A0x42120465b5e3b70!2sBerlin%2C%20Deutschland!5e0!3m2!1sde!2sus!4v1690789394297!5m2!1sde!2sus" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                         </div>
+                        <p class="mt-3">Wir sind bequem mit öffentlichen Verkehrsmitteln zu erreichen. Die nächste U-Bahn-Station ist nur 5 Gehminuten entfernt.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer / Impressum -->
+    <!-- Footer -->
     <footer class="footer-section">
         <div class="container">
             <div class="row">
-                <div class="col-md-4 mb-4 mb-md-0">
-                    <h4 class="footer-title">Über Lamberti</h4>
-                    <p>Die Confiserie Lamberti steht seit 1924 für höchste Qualität und handwerkliche Perfektion. Als Familienbetrieb in der dritten Generation sind wir stolz auf unsere Tradition und Wurzeln in Wilhelmshaven.</p>
+                <div class="col-md-4 mb-4">
+                    <h4>Confiserie Lamberti</h4>
+                    <p>Seit 1924 stehen wir für handgefertigte Schokoladenkunst und Familientradition.</p>
                 </div>
-                <div class="col-md-4 mb-4 mb-md-0">
-                    <h4 class="footer-title">Rechtliches</h4>
+                <div class="col-md-4 mb-4">
+                    <h4>Schnelllinks</h4>
                     <ul class="footer-links">
-                        <li><a href="#" data-bs-toggle="modal" data-bs-target="#impressumModal">Impressum</a></li>
-                        <li><a href="#" data-bs-toggle="modal" data-bs-target="#datenschutzModal">Datenschutz</a></li>
-                        <li><a href="#" data-bs-toggle="modal" data-bs-target="#agbModal">AGB</a></li>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#geschichte">Geschichte</a></li>
+                        <li><a href="#menschen">Menschen</a></li>
+                        <li><a href="#handwerk">Handwerk</a></li>
+                        <li><a href="#klassiker">Klassiker</a></li>
+                        <li><a href="#kontakt">Kontakt</a></li>
                     </ul>
                 </div>
-                <div class="col-md-4">
-                    <h4 class="footer-title">Newsletter</h4>
-                    <p>Melden Sie sich an, um über Neuigkeiten und Sonderaktionen informiert zu werden.</p>
-                    <form class="footer-form">
-                        <div class="input-group">
-                            <input type="email" class="form-control" placeholder="Ihre E-Mail-Adresse" required>
-                            <button class="btn btn-primary" type="submit">Anmelden</button>
-                        </div>
-                    </form>
+                <div class="col-md-4 mb-4">
+                    <h4>Newsletter</h4>
+                    <p>Melden Sie sich für unseren Newsletter an und erhalten Sie Neuigkeiten und exklusive Angebote.</p>
+                    <div class="input-group mb-3">
+                        <input type="email" class="form-control" placeholder="Ihre E-Mail-Adresse" aria-label="Ihre E-Mail-Adresse">
+                        <button class="btn btn-accent" type="button">Anmelden</button>
+                    </div>
                 </div>
             </div>
-            <div class="row mt-4">
-                <div class="col-12 text-center">
-                    <p class="copyright">© 2024 Confiserie Lamberti | Alle Rechte vorbehalten</p>
-                    <p class="disclaimer"><small>Dies ist eine fiktive Website, erstellt zu Bildungszwecken. Alle Inhalte sind fiktiv.</small></p>
-                </div>
+            <div class="footer-bottom mt-4">
+                <p>&copy; 2023 Confiserie Lamberti. Alle Rechte vorbehalten.</p>
             </div>
         </div>
     </footer>
-
-    <!-- Impressum Modal -->
-    <div class="modal fade" id="impressumModal" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Impressum</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <h5>Confiserie Lamberti GmbH</h5>
-                    <p>
-                        Marktstraße 45<br>
-                        26382 Wilhelmshaven<br>
-                        Deutschland
-                    </p>
-                    <p>
-                        Tel: 04421 / 12 34 56<br>
-                        E-Mail: info@confiserie-lamberti.de
-                    </p>
-                    <h5>Vertreten durch:</h5>
-                    <p>Thomas Lamberti (Geschäftsführer)</p>
-                    <h5>Handelsregister:</h5>
-                    <p>Amtsgericht Wilhelmshaven, HRB 12345</p>
-                    <h5>USt-IdNr.:</h5>
-                    <p>DE123456789</p>
-                    <h5>Verantwortlich für den Inhalt:</h5>
-                    <p>Thomas Lamberti (Anschrift wie oben)</p>
-                    <p><strong>Hinweis:</strong> Dies ist eine fiktive Website, erstellt zu Bildungszwecken. Alle Inhalte, Namen und Daten sind fiktiv und repräsentieren kein reales Unternehmen.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Datenschutz Modal -->
-    <div class="modal fade" id="datenschutzModal" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Datenschutzerklärung</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <h5>1. Datenschutz auf einen Blick</h5>
-                    <p>Diese Datenschutzerklärung informiert über Art, Umfang und Zweck der Verarbeitung personenbezogener Daten auf unserer Webseite.</p>
-                    <h5>2. Verantwortliche Stelle</h5>
-                    <p>Verantwortlich für die Datenverarbeitung auf dieser Website ist:<br>
-                    Confiserie Lamberti GmbH<br>
-                    Thomas Lamberti<br>
-                    Marktstraße 45<br>
-                    26382 Wilhelmshaven</p>
-                    <h5>3. Speicherung von Erinnerungen</h5>
-                    <p>Wenn Sie das Formular "Ihre Erinnerung an Lamberti" nutzen, werden die eingegebenen Daten ausschließlich lokal in Ihrem Browser gespeichert. Es erfolgt keine Übertragung an unsere Server.</p>
-                    <h5>4. Cookies</h5>
-                    <p>Diese Website verwendet nur technisch notwendige Cookies, die für die Funktionalität der Website erforderlich sind.</p>
-                    <p><strong>Hinweis:</strong> Dies ist eine fiktive Datenschutzerklärung für eine fiktive Website, erstellt zu Bildungszwecken.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- AGB Modal -->
-    <div class="modal fade" id="agbModal" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Allgemeine Geschäftsbedingungen</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <p>Dies ist ein Platzhalter für die Allgemeinen Geschäftsbedingungen.</p>
-                    <p>Auf einer realen Website würden hier die tatsächlichen AGB stehen.</p>
-                    <p><strong>Hinweis:</strong> Dies ist eine fiktive Website, erstellt zu Bildungszwecken.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    <!-- Image Viewer Modal -->
-    <div id="imageModal" class="image-modal">
-        <span class="image-modal-close">&times;</span>
-        <img class="image-modal-content" id="modalImage">
-        <div id="imageCaption" class="caption-container"></div>
-    </div>
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
