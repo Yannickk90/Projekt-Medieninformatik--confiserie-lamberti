@@ -552,6 +552,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Liquid Cursor Effect
 document.addEventListener('DOMContentLoaded', function() {
+    // Disable cursor effect for better usability
+    // This code is commented out to prevent cursor issues
+    /*
     // Create cursor elements
     const cursorContainer = document.createElement('div');
     cursorContainer.className = 'cursor-container';
@@ -685,4 +688,5 @@ document.addEventListener('DOMContentLoaded', function() {
             cursor.classList.remove('active');
         });
     });
+    */
 }); 
