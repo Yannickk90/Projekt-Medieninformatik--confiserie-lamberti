@@ -47,22 +47,40 @@ document.addEventListener('DOMContentLoaded', function() {
         const questions = document.querySelectorAll('.quiz-question');
         const prevButton = document.getElementById('prev-question');
         const nextButton = document.getElementById('next-question');
-        const submitButton = document.getElementById('submit-quiz');
-        const resultsDiv = document.getElementById('quiz-results');
-        const resultsText = document.getElementById('results-text');
-        const correctAnswersDiv = document.getElementById('correct-answers');
+        const finishButton = document.getElementById('finish-quiz');
+        const resultDiv = document.getElementById('quiz-result');
+        const resultText = document.getElementById('result-text');
         const restartButton = document.getElementById('restart-quiz');
         
         let currentQuestion = 0;
+        const userAnswers = {};
         
         // Correct answers
         const correctAnswers = {
-            q1: 'b', // 1924
-            q2: 'b', // Friedrich Lamberti
-            q3: 'b', // 1999
-            q4: 'b', // Margarethe Lamberti
-            q5: 'c'  // 100 Jahre
+            1: '1924', 
+            2: 'Whisky-Sahne-Ganache',
+            3: 'Thomas Lamberti'
         };
+        
+        // Quiz options clickable
+        const quizOptions = document.querySelectorAll('.quiz-option');
+        quizOptions.forEach(option => {
+            option.addEventListener('click', function() {
+                // Find the current question
+                const questionId = this.closest('.quiz-question').id;
+                const questionNumber = parseInt(questionId.split('-')[1]);
+                
+                // Remove selected class from all options of this question
+                const options = this.closest('.quiz-options').querySelectorAll('.quiz-option');
+                options.forEach(opt => opt.classList.remove('selected'));
+                
+                // Mark this option as selected
+                this.classList.add('selected');
+                
+                // Save the answer
+                userAnswers[questionNumber] = this.getAttribute('data-value');
+            });
+        });
         
         // Show the first question
         showQuestion(currentQuestion);
@@ -75,9 +93,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 prevButton.style.display = 'block';
                 
+                // Show finish button on the last question
                 if (currentQuestion === questions.length - 1) {
                     nextButton.style.display = 'none';
-                    submitButton.style.display = 'block';
+                    finishButton.style.display = 'block';
                 }
             }
         });
@@ -92,75 +111,70 @@ document.addEventListener('DOMContentLoaded', function() {
                     prevButton.style.display = 'none';
                 }
                 
-                if (currentQuestion < questions.length - 1) {
-                    nextButton.style.display = 'block';
-                    submitButton.style.display = 'none';
-                }
+                nextButton.style.display = 'block';
+                finishButton.style.display = 'none';
             }
         });
         
-        // Submit button click handler
-        submitButton.addEventListener('click', function() {
+        // Finish button click handler
+        finishButton.addEventListener('click', function() {
+            // Calculate result
             let score = 0;
-            let userAnswers = {};
+            const totalQuestions = Object.keys(correctAnswers).length;
             
-            for (let i = 1; i <= questions.length; i++) {
-                const selectedOption = document.querySelector(`input[name="q${i}"]:checked`);
-                if (selectedOption) {
-                    userAnswers[`q${i}`] = selectedOption.value;
-                    if (selectedOption.value === correctAnswers[`q${i}`]) {
-                        score++;
-                    }
+            for (let i = 1; i <= totalQuestions; i++) {
+                if (userAnswers[i] === correctAnswers[i]) {
+                    score++;
                 }
             }
             
+            // Hide questions and navigation
             questions.forEach(question => {
                 question.style.display = 'none';
             });
             prevButton.style.display = 'none';
-            submitButton.style.display = 'none';
+            nextButton.style.display = 'none';
+            finishButton.style.display = 'none';
             
-            resultsDiv.style.display = 'block';
+            // Show result
+            resultDiv.style.display = 'block';
             
-            const percentage = (score / questions.length) * 100;
+            const percentage = (score / totalQuestions) * 100;
             let feedback;
             
             if (percentage === 100) {
                 feedback = 'Hervorragend! Sie sind ein wahrer Lamberti-Experte!';
-            } else if (percentage >= 80) {
-                feedback = 'Sehr gut! Sie kennen die Geschichte von Lamberti wirklich gut.';
-            } else if (percentage >= 60) {
-                feedback = 'Gut gemacht! Sie haben ein solides Wissen über Lamberti.';
+            } else if (percentage >= 70) {
+                feedback = 'Sehr gut! Sie kennen die Geschichte von Lamberti gut.';
             } else if (percentage >= 40) {
                 feedback = 'Nicht schlecht! Es gibt noch einiges über Lamberti zu entdecken.';
             } else {
                 feedback = 'Vielleicht sollten Sie unsere Geschichtsseite noch einmal besuchen?';
             }
             
-            resultsText.innerHTML = `Sie haben ${score} von ${questions.length} Fragen richtig beantwortet (${percentage}%).<br>${feedback}`;
-            
-            correctAnswersDiv.innerHTML = '<h5>Die richtigen Antworten:</h5><ul>' +
-                '<li>Frage 1: 1924</li>' +
-                '<li>Frage 2: Friedrich Lamberti</li>' +
-                '<li>Frage 3: 1999</li>' +
-                '<li>Frage 4: Margarethe Lamberti</li>' +
-                '<li>Frage 5: 100 Jahre</li>' +
-                '</ul>';
+            resultText.innerHTML = `Sie haben ${score} von ${totalQuestions} Fragen richtig beantwortet (${percentage}%).<br>${feedback}`;
         });
         
         // Restart button click handler
         restartButton.addEventListener('click', function() {
             currentQuestion = 0;
             
-            document.querySelectorAll('input[type="radio"]').forEach(radio => {
-                radio.checked = false;
+            // Remove all selections
+            document.querySelectorAll('.quiz-option').forEach(option => {
+                option.classList.remove('selected');
             });
             
-            resultsDiv.style.display = 'none';
+            // Hide result
+            resultDiv.style.display = 'none';
             
+            // Show first question and navigation buttons
             showQuestion(currentQuestion);
             nextButton.style.display = 'block';
             prevButton.style.display = 'none';
+            finishButton.style.display = 'none';
+            
+            // Reset answers
+            Object.keys(userAnswers).forEach(key => delete userAnswers[key]);
         });
         
         // Function to show a specific question
