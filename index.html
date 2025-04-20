@@ -79,7 +79,7 @@
                     <div class="timeline-content">
                         <h3>1924: Die Gründung</h3>
                         <p>Friedrich Lamberti gründet in einer kleinen Werkstatt die Confiserie Lamberti und beginnt mit der Herstellung von handgefertigten Pralinen nach traditionellen italienischen Rezepten.</p>
-                        <a href="#document1924" data-bs-toggle="modal" class="btn btn-sm btn-outline-accent mt-2">Originaldokument ansehen</a>
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#document1924" class="btn btn-sm btn-outline-accent mt-2">Originaldokument ansehen</a>
                         <div class="timeline-image mt-3">
                             <img src="images/timeline/1924-gruendung.jpg" alt="Gründung 1924" class="img-fluid">
                         </div>
@@ -125,7 +125,7 @@
                         <div class="timeline-image mt-3">
                             <img src="images/timeline/1999-cafe.jpg" alt="Eröffnung Café Lamberti" class="img-fluid">
                         </div>
-                        <a href="#document1999" data-bs-toggle="modal" class="btn btn-sm btn-outline-accent mt-2">Einladungskarte ansehen</a>
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#document1999" class="btn btn-sm btn-outline-accent mt-2">Einladungskarte ansehen</a>
                         <div class="timeline-video mt-3">
                             <!-- Temporarily disabled until media files are available
                             <video controls class="img-fluid">
@@ -547,5 +547,34 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <!-- Custom JS -->
     <script src="js/main.js"></script>
+    
+    <!-- Dokumenten-Modals -->
+    <div class="modal fade" id="document1924" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Erste Speisekarte (1924)</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="images/documents/speisekarte-1924.jpg" alt="Speisekarte von 1924" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="document1999" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Eröffnungseinladung Café Lamberti (1999)</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="images/documents/einladung-1999.jpg" alt="Eröffnungseinladung von 1999" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html> 
